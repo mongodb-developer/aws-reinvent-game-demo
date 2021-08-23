@@ -6,6 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/LoginScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/RegistrationScene.unity
+    guid: ad807b26897444eb8838458feae571ef
+  - enabled: 1
+    path: Assets/Scenes/MidgardScene.unity
+    guid: e5cbb7bd46e5c4000aec1f53c6defe77
+  - enabled: 1
+    path: Assets/Scenes/DanceDanceScene.unity
+    guid: 03c0b8eb6d699416188ae750a33a47c4
+  - enabled: 1
+    path: Assets/Scenes/InfiniteRunnerScene.unity
+    guid: 9f62e2a600c9e42c0937b6b95adb04e6
+  - enabled: 1
+    path: Assets/Scenes/TargetPracticeScene.unity
+    guid: e5ec37c180adf4c5d920eb44e90cf8a8
   m_configObjects: {}

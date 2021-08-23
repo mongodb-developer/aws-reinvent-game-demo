@@ -1,0 +1,24 @@
+use("reinvent");
+
+db.players.deleteOne({ "email": "reinvent@example.com" });
+
+db.players.insertOne({
+    "_id": "6123f18d5e740c1a8199a82b",
+    "email": "reinvent@example.com",
+    "leafs": 0,
+    "total_score": 0,
+    "games": {
+        "change_streams": {
+            "total_plays": 0,
+            "high_score": 0
+        },
+        "target_practice": {
+            "total_plays": 0,
+            "high_score": 0
+        },
+        "dance_dance": {
+            "total_plays": 0,
+            "high_score": 0
+        }
+    }
+});
