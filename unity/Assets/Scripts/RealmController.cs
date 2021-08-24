@@ -54,11 +54,6 @@ public class RealmController : MonoBehaviour {
     public async Task<string> Register(string name, string email, string password) {
         if(name != "" && email != "" && password != "") {
             try {
-                var document = new BsonDocument {
-                    { "name", name },
-                    { "email", email },
-                    { "password", password }
-                };
                 _realmApp = App.Create(new AppConfiguration(realmAppId) {
                     MetadataPersistenceMode = MetadataPersistenceMode.NotEncrypted
                 });
@@ -79,14 +74,23 @@ public class RealmController : MonoBehaviour {
         return _realmUser != null ? _realmUser.Profile.Email : "";
     }
 
-    public Player GetCurrentPlayer() {
-        Player player = _realm.Find<Player>(_realmUser.Id);
+    public PlayerModel GetCurrentPlayer() {
+        PlayerModel player = _realm.Find<PlayerModel>(_realmUser.Id);
         if(player == null) {
             _realm.Write(() => {
-                player = _realm.Add(new Player(_realmUser.Id, _realmUser.Profile.Email));
+                player = _realm.Add(new PlayerModel(_realmUser.Id, _realmUser.Profile.Email));
             });
         }
         return player;
+    }
+
+    public void IncreaseChangeStreamsScore(int currentScore) {
+        PlayerModel player = GetCurrentPlayer();
+        if(currentScore > player.Games.ChangeStreams.HighScore) {
+            _realm.Write(() => {
+                player.Games.ChangeStreams.HighScore = currentScore;
+            });
+        }
     }
 
 }
