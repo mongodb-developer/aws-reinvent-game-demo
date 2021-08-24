@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour {
+public class MPlayer : MonoBehaviour {
 
     public float movementSpeed = 5.0f;
 
@@ -21,5 +22,11 @@ public class Player : MonoBehaviour {
             transform.position += Vector3.right * movementSpeed * Time.deltaTime;
         }
     }
+
+    // void OnTriggerEnter2D(Collider2D collider) {
+    //     if(collider.tag == "NPC") {
+    //         SceneManager.LoadScene("InfiniteRunnerScene");
+    //     }
+    // }
 
 }
