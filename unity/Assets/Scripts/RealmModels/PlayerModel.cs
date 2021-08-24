@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Realms;
 
-public class Player : RealmObject {
+public class PlayerModel : RealmObject {
 
     [PrimaryKey]
     [MapTo("_id")]
@@ -10,48 +10,79 @@ public class Player : RealmObject {
     [MapTo("email")]
     public string Email { get; set; }
     [MapTo("games")]
-    public Player_games Games { get; set; }
+    public PlayerModel_games Games { get; set; }
     [MapTo("leafs")]
     public int? Leafs { get; set; }
     [MapTo("total_score")]
     public int? TotalScore { get; set; }
 
+    public PlayerModel() { }
+
+    public PlayerModel(string id, string email) {
+        this.Id = id;
+        this.Email = email;
+        this.Leafs = 0;
+        this.TotalScore = 0;
+        this.Games = new PlayerModel_games();
+    }
+
 }
 
-public class Player_games : EmbeddedObject {
+public class PlayerModel_games : EmbeddedObject {
 
     [MapTo("change_streams")]
-    public Player_games_change_streams ChangeStreams { get; set; }
+    public PlayerModel_games_change_streams ChangeStreams { get; set; }
     [MapTo("dance_dance")]
-    public Player_games_dance_dance DanceDance { get; set; }
+    public PlayerModel_games_dance_dance DanceDance { get; set; }
     [MapTo("target_practice")]
-    public Player_games_target_practice TargetPractice { get; set; }
+    public PlayerModel_games_target_practice TargetPractice { get; set; }
+
+    public PlayerModel_games() {
+        this.ChangeStreams = new PlayerModel_games_change_streams();
+        this.DanceDance = new PlayerModel_games_dance_dance();
+        this.TargetPractice = new PlayerModel_games_target_practice();
+    }
 
 }
 
-public class Player_games_change_streams : EmbeddedObject {
+public class PlayerModel_games_change_streams : EmbeddedObject {
 
     [MapTo("high_score")]
     public int? HighScore { get; set; }
     [MapTo("total_plays")]
     public int? TotalPlays { get; set; }
 
+    public PlayerModel_games_change_streams() {
+        this.HighScore = 0;
+        this.TotalPlays = 0;
+    }
+
 }
 
-public class Player_games_dance_dance : EmbeddedObject {
+public class PlayerModel_games_dance_dance : EmbeddedObject {
 
     [MapTo("high_score")]
     public int? HighScore { get; set; }
     [MapTo("total_plays")]
     public int? TotalPlays { get; set; }
 
+    public PlayerModel_games_dance_dance() {
+        this.HighScore = 0;
+        this.TotalPlays = 0;
+    }
+
 }
 
-public class Player_games_target_practice : EmbeddedObject {
+public class PlayerModel_games_target_practice : EmbeddedObject {
 
     [MapTo("high_score")]
     public int? HighScore { get; set; }
     [MapTo("total_plays")]
     public int? TotalPlays { get; set; }
+
+    public PlayerModel_games_target_practice() {
+        this.HighScore = 0;
+        this.TotalPlays = 0;
+    }
 
 }
