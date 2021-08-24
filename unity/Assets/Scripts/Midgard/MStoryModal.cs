@@ -13,9 +13,6 @@ public class MStoryModal : MonoBehaviour {
 
     void OnEnable() {
         Time.timeScale = 0.0f;
-    }
-
-    void Start() {
         GameObject storyTextGameObject = transform.Find("StoryModalText").gameObject;
         GameObject characterImageGameObject = transform.Find("NPCImage").gameObject;
         _storyText = storyTextGameObject.GetComponent<Text>();

@@ -14,8 +14,7 @@ public class MNPC : MonoBehaviour {
     private bool _isStoryTelling = false;
 
     void Start() {
-        storyModal.GetComponent<MStoryModal>().storyMessage = storyMessage;
-        storyModal.GetComponent<MStoryModal>().characterIcon = characterIcon;
+        
     }
 
     void Update() {
@@ -29,6 +28,8 @@ public class MNPC : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider) {
         if(collider.tag == "Player") {
             _isStoryTelling = true;
+            storyModal.GetComponent<MStoryModal>().storyMessage = storyMessage;
+            storyModal.GetComponent<MStoryModal>().characterIcon = characterIcon;
             storyModal.SetActive(true);
         }
     }
