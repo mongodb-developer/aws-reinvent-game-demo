@@ -93,4 +93,11 @@ public class RealmController : MonoBehaviour {
         }
     }
 
+    public void IncreaseChangeStreamsPlayCount() {
+        PlayerModel player = GetCurrentPlayer();
+        _realm.Write(() => {
+            player.Games.ChangeStreams.TotalPlays++;
+        });
+    }
+
 }
