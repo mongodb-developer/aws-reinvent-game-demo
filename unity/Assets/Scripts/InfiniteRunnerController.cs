@@ -6,6 +6,7 @@ public class InfiniteRunnerController : MonoBehaviour
 {
 
     public float obstacleTimer = 2.0f;
+    public GameObject gameOverModal;
 
     private float _timeUntilObstacle = 1.0f;
 
@@ -18,6 +19,11 @@ public class InfiniteRunnerController : MonoBehaviour
             }
             _timeUntilObstacle = obstacleTimer;
         }
+    }
+
+    public void ShowGameOverModal() {
+        gameOverModal.SetActive(true);
+        Time.timeScale = 0.0f;
     }
 
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class IRPlayer : MonoBehaviour
 {
     public float movementSpeed = 5.0f;
+    public InfiniteRunnerController controller;
 
     void Start() {
         
@@ -20,7 +21,7 @@ public class IRPlayer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider) {
         if(collider.tag == "Obstacle") {
-            Debug.Log("Collision");
+            controller.ShowGameOverModal();
         }
     }
 
