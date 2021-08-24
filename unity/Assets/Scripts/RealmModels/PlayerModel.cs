@@ -16,6 +16,15 @@ public class Player : RealmObject {
     [MapTo("total_score")]
     public int? TotalScore { get; set; }
 
+    public Player() { }
+
+    public Player(string id, string email) {
+        this.Id = id;
+        this.Email = email;
+        this.Leafs = 0;
+        this.TotalScore = 0;
+    }
+
 }
 
 public class Player_games : EmbeddedObject {
