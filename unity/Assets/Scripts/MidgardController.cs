@@ -6,6 +6,7 @@ using System;
 
 public class MidgardController : MonoBehaviour {
 
+    public GameObject mainMenuModal;
     public Text playerNameText;
     public Text totalScoreText;
 
@@ -27,10 +28,19 @@ public class MidgardController : MonoBehaviour {
         }
     }
 
+    private void ToggleMainMenu() {
+        mainMenuModal.SetActive(!mainMenuModal.activeInHierarchy);
+        Time.timeScale = mainMenuModal.activeInHierarchy ? 0.0f : 1.0f;
+    }
+
     void OnGUI() {
         Event e = Event.current;
         if(e.isKey && e.type == EventType.KeyUp) {
-            AddKeyStrokeToHistory(e.keyCode.ToString());
+            if(e.keyCode == KeyCode.Escape) {
+                ToggleMainMenu();
+            } else {
+                AddKeyStrokeToHistory(e.keyCode.ToString());
+            }
         }
     }
 
