@@ -100,4 +100,11 @@ public class RealmController : MonoBehaviour {
         });
     }
 
+    public void SetTotalScore(int score) {
+        PlayerModel player = GetCurrentPlayer();
+        _realm.Write(() => {
+            player.TotalScore = score;
+        });
+    }
+
 }
