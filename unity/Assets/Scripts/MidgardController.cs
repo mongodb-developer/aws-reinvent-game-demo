@@ -22,6 +22,12 @@ public class MidgardController : MonoBehaviour {
 
     void Update() {
         totalScoreText.text = "TOTAL SCORE: " + RealmController.Instance.GetCurrentPlayer().TotalScore.ToString();
+        KeyCode keyPressed = DetectKeyPressed();
+        if(keyPressed == KeyCode.Escape) {
+            ToggleMainMenu();
+        } else {
+            AddKeyStrokeToHistory(keyPressed.ToString());
+        }
         if(GetKeyStrokeHistory().Equals("UpArrow,UpArrow,DownArrow,DownArrow,LeftArrow,RightArrow,LeftArrow,RightArrow,B,A")) {
             RealmController.Instance.SetTotalScore(1337);
             ClearKeyStrokeHistory();
@@ -33,21 +39,21 @@ public class MidgardController : MonoBehaviour {
         Time.timeScale = mainMenuModal.activeInHierarchy ? 0.0f : 1.0f;
     }
 
-    void OnGUI() {
-        Event e = Event.current;
-        if(e.isKey && e.type == EventType.KeyUp) {
-            if(e.keyCode == KeyCode.Escape) {
-                ToggleMainMenu();
-            } else {
-                AddKeyStrokeToHistory(e.keyCode.ToString());
+    private KeyCode DetectKeyPressed() {
+        foreach(KeyCode key in Enum.GetValues(typeof(KeyCode))) {
+            if(Input.GetKeyDown(key)) {
+                return key;
             }
         }
+        return KeyCode.None;
     }
 
     private void AddKeyStrokeToHistory(string keyStroke) {
-        _keyStrokeHistory.Add(keyStroke);
-        if(_keyStrokeHistory.Count > 10) {
-            _keyStrokeHistory.RemoveAt(0);
+        if(!keyStroke.Equals("None")) {
+            _keyStrokeHistory.Add(keyStroke);
+            if(_keyStrokeHistory.Count > 10) {
+                _keyStrokeHistory.RemoveAt(0);
+            }
         }
     }
 
