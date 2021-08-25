@@ -51,6 +51,11 @@ public class RealmController : MonoBehaviour {
         return "";
     }
 
+    public async void Logout() {
+        await _realmUser.LogOutAsync();
+        _realm.Dispose();
+    }
+
     public async Task<string> Register(string name, string email, string password) {
         if(name != "" && email != "" && password != "") {
             try {
@@ -97,6 +102,13 @@ public class RealmController : MonoBehaviour {
         PlayerModel player = GetCurrentPlayer();
         _realm.Write(() => {
             player.Games.ChangeStreams.TotalPlays++;
+        });
+    }
+
+    public void SetTotalScore(int score) {
+        PlayerModel player = GetCurrentPlayer();
+        _realm.Write(() => {
+            player.TotalScore = score;
         });
     }
 
