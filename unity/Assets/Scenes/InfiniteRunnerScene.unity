@@ -884,7 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fa913d6bfe1467a9f5537194513856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleTimer: 2
+  obstacleTimer: 1.5
   gameOverModal: {fileID: 1843837308}
   scoreText: {fileID: 47072051}
 --- !u!1 &1801788763
