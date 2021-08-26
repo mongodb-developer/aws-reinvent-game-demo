@@ -17,6 +17,12 @@ public class LoginController : MonoBehaviour {
         LoginButton.onClick.AddListener(Login);
         RegistrationButton.onClick.AddListener(Register);
     }
+
+    void Update() {
+        if(Input.GetKey(KeyCode.Escape)) {
+            Application.Quit();
+        }
+    }
     
     async public void Login() {
         if(await RealmController.Instance.Login(EmailInput.text, PasswordInput.text) != "") {
