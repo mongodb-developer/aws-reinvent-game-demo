@@ -7,9 +7,11 @@ public class FHook : MonoBehaviour {
     private bool _isDropLine = false;
     private bool _isReelLine = false;
     private Vector3 _startingPosition;
+    private bool _hasHooked = false;
 
     void OnEnable() {
         _startingPosition = transform.position;
+        _hasHooked = false;
     }
 
     void Update() {
@@ -35,6 +37,16 @@ public class FHook : MonoBehaviour {
     public void ReelLine() {
         _isReelLine = true;
         _isDropLine = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider) {
+        if(collider.tag == "Fish") {
+            if(_hasHooked == false) {
+                collider.gameObject.GetComponent<Fish>().Hooked();
+                collider.gameObject.transform.position = transform.position;
+                _hasHooked = true;
+            }
+        }
     }
 
 }

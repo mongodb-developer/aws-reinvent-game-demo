@@ -6,6 +6,7 @@ public class FPlayer : MonoBehaviour {
 
     public float movementSpeed = 5.0f;
     public GameObject fishHook;
+    public FishingController controller;
 
     public bool _isCasting = false;
     
@@ -30,6 +31,14 @@ public class FPlayer : MonoBehaviour {
                 fishHook.GetComponent<FHook>().ReelLine();
             }
             _isCasting = fishHook.activeInHierarchy;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider) {
+        if(collider.tag == "Fish") {
+            int fishWeight = collider.gameObject.GetComponent<Fish>().fishWeight;
+            collider.gameObject.SetActive(false);
+            controller.IncreaseScore(fishWeight);
         }
     }
 

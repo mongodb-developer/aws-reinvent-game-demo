@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6717641145132152753}
   m_Layer: 0
   m_Name: Fish
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,5 +149,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishSprite: {fileID: 0}
   fishWeight: 1
-  movementSpeed: 5
-  movementTimeout: 2
+  movementSpeed: 4
+  movementTimeout: 5
