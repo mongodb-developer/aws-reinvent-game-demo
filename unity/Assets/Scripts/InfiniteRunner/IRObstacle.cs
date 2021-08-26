@@ -15,7 +15,11 @@ public class IRObstacle : MonoBehaviour {
     }
 
     void Update() {
-        if((int) Time.timeSinceLevelLoad >= 30) {
+        if((int) Time.timeSinceLevelLoad >= 50) {
+            _acceleration = 2.50f;
+        } else if((int) Time.timeSinceLevelLoad >= 40) {
+            _acceleration = 2.25f;
+        } else if((int) Time.timeSinceLevelLoad >= 30) {
             _acceleration = 1.75f;
         } else if((int) Time.timeSinceLevelLoad >= 20) {
             _acceleration = 1.50f;
