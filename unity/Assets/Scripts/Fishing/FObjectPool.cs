@@ -21,10 +21,6 @@ public class FObjectPool : MonoBehaviour {
         }
     }
 
-    void Start() {
-        
-    }
-
     public GameObject GetPooledFish() {
         for(int i = 0; i < fishPoolSize; i++) {
             if(_pooledFish[i].activeInHierarchy == false) {
@@ -32,6 +28,15 @@ public class FObjectPool : MonoBehaviour {
             }
         }
         return null;
+    }
+
+    public bool IsPoolFull() {
+        for(int i = 0; i < fishPoolSize; i++) {
+            if(_pooledFish[i].activeInHierarchy == true) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

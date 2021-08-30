@@ -36,11 +36,14 @@ public class PlayerModel_games : EmbeddedObject {
     public PlayerModel_games_dance_dance DanceDance { get; set; }
     [MapTo("target_practice")]
     public PlayerModel_games_target_practice TargetPractice { get; set; }
+    [MapTo("fishing")]
+    public PlayerModel_games_fishing Fishing { get; set; }
 
     public PlayerModel_games() {
         this.ChangeStreams = new PlayerModel_games_change_streams();
         this.DanceDance = new PlayerModel_games_dance_dance();
         this.TargetPractice = new PlayerModel_games_target_practice();
+        this.Fishing = new PlayerModel_games_fishing();
     }
 
 }
@@ -81,6 +84,20 @@ public class PlayerModel_games_target_practice : EmbeddedObject {
     public int? TotalPlays { get; set; }
 
     public PlayerModel_games_target_practice() {
+        this.HighScore = 0;
+        this.TotalPlays = 0;
+    }
+
+}
+
+public class PlayerModel_games_fishing : EmbeddedObject {
+
+    [MapTo("high_score")]
+    public int? HighScore { get; set; }
+    [MapTo("total_plays")]
+    public int? TotalPlays { get; set; }
+
+    public PlayerModel_games_fishing() {
         this.HighScore = 0;
         this.TotalPlays = 0;
     }
