@@ -20,7 +20,7 @@ public class InfiniteRunnerController : MonoBehaviour
     }
 
     void Update() {
-        if((int) Time.timeSinceLevelLoad >= 100) {
+        if((int) Time.timeSinceLevelLoad >= 100 && gameSuccessModal.activeInHierarchy == false) {
             ShowGameSuccessModal();
         } else if((int) Time.timeSinceLevelLoad >= 50) {
             _acceleration = 2.50f;

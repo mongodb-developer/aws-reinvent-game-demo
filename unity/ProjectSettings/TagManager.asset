@@ -6,6 +6,8 @@ TagManager:
   tags:
   - NPC
   - Obstacle
+  - Hook
+  - Fish
   layers:
   - Default
   - TransparentFX
@@ -48,6 +50,9 @@ TagManager:
     locked: 0
   - name: NPC
     uniqueID: 863632631
+    locked: 0
+  - name: Item
+    uniqueID: 2595559427
     locked: 0
   - name: Player
     uniqueID: 3870738683

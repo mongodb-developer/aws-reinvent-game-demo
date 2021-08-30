@@ -112,4 +112,20 @@ public class RealmController : MonoBehaviour {
         });
     }
 
+    public void IncreaseFishingPlayCount() {
+        PlayerModel player = GetCurrentPlayer();
+        _realm.Write(() => {
+            player.Games.Fishing.TotalPlays++;
+        });
+    }
+
+    public void IncreaseFishingScore(int currentScore) {
+        PlayerModel player = GetCurrentPlayer();
+        if(currentScore > player.Games.Fishing.HighScore) {
+            _realm.Write(() => {
+                player.Games.Fishing.HighScore = currentScore;
+            });
+        }
+    }
+
 }
