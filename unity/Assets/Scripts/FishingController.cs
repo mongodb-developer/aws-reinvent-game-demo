@@ -7,6 +7,7 @@ public class FishingController : MonoBehaviour {
 
     public Text scoreText;
     public GameObject gameSuccessModal;
+    public GameObject mainMenuModal;
 
     private int _score;
 
@@ -25,10 +26,18 @@ public class FishingController : MonoBehaviour {
         if(FObjectPool.SharedInstance.IsPoolFull() == true && gameSuccessModal.activeInHierarchy == false) {
             ShowGameSuccessModal();
         }
+        if(Input.GetKeyUp(KeyCode.Escape)) {
+            ToggleMainMenu();
+        }
     }
 
     public void IncreaseScore(int weight) {
         _score += weight;
+    }
+
+    private void ToggleMainMenu() {
+        mainMenuModal.SetActive(!mainMenuModal.activeInHierarchy);
+        Time.timeScale = mainMenuModal.activeInHierarchy ? 0.0f : 1.0f;
     }
 
     public void ShowGameSuccessModal() {

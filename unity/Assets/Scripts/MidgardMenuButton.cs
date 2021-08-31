@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LogoutButton : MonoBehaviour {
+public class MidgardMenuButton : MonoBehaviour {
 
     void OnMouseDown() {
-        RealmController.Instance.Logout();
-        SceneManager.LoadScene("LoginScene");
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("MidgardScene");
     }
 
 }
