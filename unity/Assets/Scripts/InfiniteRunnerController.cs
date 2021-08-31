@@ -15,6 +15,11 @@ public class InfiniteRunnerController : MonoBehaviour
     private float _timeUntilObstacle = 1.0f;
     private int _score;
     private float _acceleration = 1.0f;
+    private Component[] _audioSources;
+
+    void Awake() {
+        _audioSources = GetComponents(typeof(AudioSource));
+    }
 
     void Start() {
         _score = 0;
@@ -52,6 +57,15 @@ public class InfiniteRunnerController : MonoBehaviour
     private void ToggleMainMenu() {
         mainMenuModal.SetActive(!mainMenuModal.activeInHierarchy);
         Time.timeScale = mainMenuModal.activeInHierarchy ? 0.0f : 1.0f;
+        if(!mainMenuModal.activeInHierarchy) {
+            foreach(AudioSource _audioSource in _audioSources) {
+                _audioSource.UnPause();
+            }
+        } else {
+            foreach(AudioSource _audioSource in _audioSources) {
+                _audioSource.Pause();
+            }
+        }
     }
 
     public void ShowGameOverModal() {

@@ -12,6 +12,11 @@ public class FishingController : MonoBehaviour {
     public float playTime = 100.0f;
 
     private int _score;
+    private AudioSource _audioSource;
+
+    void Awake() {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     void Start() {
         _score = 0;
@@ -42,6 +47,11 @@ public class FishingController : MonoBehaviour {
     private void ToggleMainMenu() {
         mainMenuModal.SetActive(!mainMenuModal.activeInHierarchy);
         Time.timeScale = mainMenuModal.activeInHierarchy ? 0.0f : 1.0f;
+        if(!mainMenuModal.activeInHierarchy) {
+            _audioSource.UnPause();
+        } else {
+            _audioSource.Pause();
+        }
     }
 
     public void ShowGameSuccessModal() {
