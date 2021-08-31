@@ -9,6 +9,7 @@ public class InfiniteRunnerController : MonoBehaviour
     public float obstacleTimer = 1.5f;
     public GameObject gameOverModal;
     public GameObject gameSuccessModal;
+    public GameObject mainMenuModal;
     public Text scoreText;
 
     private float _timeUntilObstacle = 1.0f;
@@ -20,6 +21,9 @@ public class InfiniteRunnerController : MonoBehaviour
     }
 
     void Update() {
+        if(Input.GetKeyUp(KeyCode.Escape)) {
+            ToggleMainMenu();
+        }
         if((int) Time.timeSinceLevelLoad >= 100 && gameSuccessModal.activeInHierarchy == false) {
             ShowGameSuccessModal();
         } else if((int) Time.timeSinceLevelLoad >= 50) {
@@ -43,6 +47,11 @@ public class InfiniteRunnerController : MonoBehaviour
         }
         _score = (int) Time.timeSinceLevelLoad;
         scoreText.text = "SCORE: " + _score.ToString();
+    }
+
+    private void ToggleMainMenu() {
+        mainMenuModal.SetActive(!mainMenuModal.activeInHierarchy);
+        Time.timeScale = mainMenuModal.activeInHierarchy ? 0.0f : 1.0f;
     }
 
     public void ShowGameOverModal() {

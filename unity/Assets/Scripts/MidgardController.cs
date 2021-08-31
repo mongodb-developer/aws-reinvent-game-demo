@@ -17,11 +17,11 @@ public class MidgardController : MonoBehaviour {
     }
 
     void Start() {
-        playerNameText.text = "PLAYER: " + RealmController.Instance.GetCurrentPlayer().Email;
+        playerNameText.text = RealmController.Instance != null ? "PLAYER: " + RealmController.Instance.GetCurrentPlayer().Email : "PLAYER: ";
     }
 
     void Update() {
-        totalScoreText.text = "TOTAL SCORE: " + RealmController.Instance.GetCurrentPlayer().TotalScore.ToString();
+        totalScoreText.text = RealmController.Instance != null ? "TOTAL SCORE: " + RealmController.Instance.GetCurrentPlayer().TotalScore.ToString() : "TOTAL SCORE: ";
         KeyCode keyPressed = DetectKeyPressed();
         if(keyPressed == KeyCode.Escape) {
             ToggleMainMenu();
