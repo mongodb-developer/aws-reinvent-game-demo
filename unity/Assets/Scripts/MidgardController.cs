@@ -11,9 +11,11 @@ public class MidgardController : MonoBehaviour {
     public Text totalScoreText;
 
     private List<string> _keyStrokeHistory;
+    private AudioSource _audioSource;
 
     void Awake() {
         _keyStrokeHistory = new List<string>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Start() {
@@ -37,6 +39,11 @@ public class MidgardController : MonoBehaviour {
     private void ToggleMainMenu() {
         mainMenuModal.SetActive(!mainMenuModal.activeInHierarchy);
         Time.timeScale = mainMenuModal.activeInHierarchy ? 0.0f : 1.0f;
+        if(!mainMenuModal.activeInHierarchy) {
+            _audioSource.UnPause();
+        } else {
+            _audioSource.Pause();
+        }
     }
 
     private KeyCode DetectKeyPressed() {
