@@ -26,7 +26,7 @@ public class MNPC : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
-        if(collider.tag == "Player") {
+        if(collider.tag == "Player" && Time.timeSinceLevelLoad > 1.0f) {
             _isStoryTelling = true;
             storyModal.GetComponent<MStoryModal>().storyMessage = storyMessage;
             storyModal.GetComponent<MStoryModal>().characterIcon = characterIcon;

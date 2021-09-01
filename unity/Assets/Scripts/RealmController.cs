@@ -128,4 +128,12 @@ public class RealmController : MonoBehaviour {
         }
     }
 
+    public void UpdatePositionInMidgard(float x, float y) {
+        PlayerModel player = GetCurrentPlayer();
+        _realm.Write(() => {
+            player.X = (double) x;
+            player.Y = (double) y;
+        });
+    }
+
 }

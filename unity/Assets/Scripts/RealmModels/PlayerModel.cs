@@ -15,6 +15,10 @@ public class PlayerModel : RealmObject {
     public int? Leafs { get; set; }
     [MapTo("total_score")]
     public int? TotalScore { get; set; }
+    [MapTo("x")]
+    public double? X { get; set; }
+    [MapTo("y")]
+    public double? Y { get; set; }
 
     public PlayerModel() { }
 
@@ -23,6 +27,8 @@ public class PlayerModel : RealmObject {
         this.Email = email;
         this.Leafs = 0;
         this.TotalScore = 0;
+        this.X = 0.0;
+        this.Y = 0.0;
         this.Games = new PlayerModel_games();
     }
 
