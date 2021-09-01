@@ -7,9 +7,11 @@ public class MPlayer : MonoBehaviour {
 
     public float movementSpeed = 5.0f;
 
-    void Start() {
-        
+    void Awake() {
+        transform.position = new Vector2((float)RealmController.Instance.GetCurrentPlayer().X, (float)RealmController.Instance.GetCurrentPlayer().Y);
     }
+
+    void Start() { }
 
     void Update() {
         if(Input.GetKey(KeyCode.UpArrow)) {
@@ -21,12 +23,9 @@ public class MPlayer : MonoBehaviour {
         } else if(Input.GetKey(KeyCode.RightArrow)) {
             transform.position += Vector3.right * movementSpeed * Time.deltaTime;
         }
+        if(Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow)) {
+            RealmController.Instance.UpdatePositionInMidgard(transform.position.x, transform.position.y);
+        }
     }
-
-    // void OnTriggerEnter2D(Collider2D collider) {
-    //     if(collider.tag == "NPC") {
-    //         SceneManager.LoadScene("InfiniteRunnerScene");
-    //     }
-    // }
 
 }
