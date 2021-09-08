@@ -45,6 +45,21 @@ TagManager:
   - name: Background
     uniqueID: 2104329073
     locked: 0
+  - name: Water
+    uniqueID: 3188870311
+    locked: 0
+  - name: Artifact
+    uniqueID: 787325007
+    locked: 0
+  - name: Rocks
+    uniqueID: 3735818307
+    locked: 0
+  - name: Trees
+    uniqueID: 3327537309
+    locked: 0
+  - name: Bridge
+    uniqueID: 2109550751
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

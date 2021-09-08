@@ -8,7 +8,9 @@ public class MPlayer : MonoBehaviour {
     public float movementSpeed = 5.0f;
 
     void Awake() {
-        transform.position = new Vector2((float)RealmController.Instance.GetCurrentPlayer().X, (float)RealmController.Instance.GetCurrentPlayer().Y);
+        if(RealmController.Instance != null) {
+            transform.position = new Vector2((float)RealmController.Instance.GetCurrentPlayer().X, (float)RealmController.Instance.GetCurrentPlayer().Y);
+        }
     }
 
     void Start() { }
