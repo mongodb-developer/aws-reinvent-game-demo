@@ -15,7 +15,7 @@ public class MPlayer : MonoBehaviour {
 
     void Start() { }
 
-    void Update() {
+    void FixedUpdate() {
         if(Input.GetKey(KeyCode.UpArrow)) {
             transform.position += Vector3.up * movementSpeed * Time.deltaTime;
         } else if(Input.GetKey(KeyCode.DownArrow)) {
@@ -26,7 +26,9 @@ public class MPlayer : MonoBehaviour {
             transform.position += Vector3.right * movementSpeed * Time.deltaTime;
         }
         if(Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow)) {
-            RealmController.Instance.UpdatePositionInMidgard(transform.position.x, transform.position.y);
+            if(RealmController.Instance != null) {
+                RealmController.Instance.UpdatePositionInMidgard(transform.position.x, transform.position.y);
+            }
         }
     }
 
