@@ -27,8 +27,8 @@ public class PlayerModel : RealmObject {
         this.Email = email;
         this.Leafs = 0;
         this.TotalScore = 0;
-        this.X = 0.0;
-        this.Y = 0.0;
+        this.X = -120.0;
+        this.Y = -142.0;
         this.Games = new PlayerModel_games();
     }
 
