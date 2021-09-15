@@ -1,0 +1,2 @@
+dev-deploy:
+    realm-cli push --remote=leaderboard-anwug --include-hosting -y
