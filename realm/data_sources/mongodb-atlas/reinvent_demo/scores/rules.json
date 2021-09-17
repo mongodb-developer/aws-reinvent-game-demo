@@ -1,0 +1,19 @@
+{
+    "collection": "scores",
+    "database": "reinvent_demo",
+    "roles": [
+        {
+            "name": "default",
+            "apply_when": {},
+            "insert": false,
+            "delete": false,
+            "search": true,
+            "read": true,
+            "write": false,
+            "fields": {},
+            "additional_fields": {}
+        }
+    ],
+    "filters": [],
+    "schema": {}
+}

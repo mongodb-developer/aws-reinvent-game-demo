@@ -3,5 +3,10 @@
         "name": "resetFunc",
         "private": false,
         "can_evaluate": {}
+    },
+    {
+        "name": "winners",
+        "private": false,
+        "can_evaluate": {}
     }
 ]

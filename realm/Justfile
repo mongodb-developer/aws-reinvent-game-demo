@@ -1,2 +1,15 @@
-dev-deploy:
-    realm-cli push --remote=leaderboard-anwug --include-hosting -y
+push:
+    realm-cli push \
+        --include-hosting \
+        --reset-cdn-cache \
+        --yes
+
+deploy:
+    cd app && npm run build
+    just push
+
+connect:
+    mongosh $MDB_URI
+
+init:
+    mongosh $MDB_URI scripts/init_scores.js
