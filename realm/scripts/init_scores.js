@@ -1,5 +1,6 @@
 var scores = db.scores;
 scores.drop();
+scores.createIndex({ "username": 1 }, { unique: true });
 scores.insertMany([
     {
         "username": "Judy2k",
@@ -32,10 +33,6 @@ scores.insertMany([
     {
         "username": "MRS",
         "score": 550
-    },
-    {
-        "username": "ILoveWaffles",
-        "score": 500
     },
     {
         "username": "Spongebob",

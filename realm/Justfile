@@ -13,3 +13,6 @@ connect:
 
 init:
     mongosh $MDB_URI scripts/init_scores.js
+
+rolling:
+    ./scripts/rolling_updates

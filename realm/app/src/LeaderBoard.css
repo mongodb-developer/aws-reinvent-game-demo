@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Alagard';
+    src: url('fonts/Alagard.woff2') format('woff2'),
+        url('fonts/Alagard.woff') format('woff'),
+        url('fonts/Alagard.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+.leaderboard > h1 {
+    font-family: "Alagard";
+    font-size: 48pt;
+    background-color: #e8cb52;
+    color: #313000;
+    border: 5px solid #fae277;
+    text-align: center;
+}
+
+.leaderboard {
+    
+    padding: 5px;
+}
+
+.leaderboard-items {
+    font-family: "Alagard";
+    font-size: 32pt;
+    width: 100%;
+    border-collapse: collapse;
+    border: 5px solid #726217;
+}
+
+.line-item {
+    background-color: #313000;
+    color: white;
+}
+
+.line-item:nth-child(even) {
+    background-color: #454413;
+}
+
+.username {
+    text-align: center;
+}
+
+.score {
+    text-align: center;
+}
