@@ -16,6 +16,7 @@ function App() {
       const user = await app.logIn(Realm.Credentials.anonymous());
       setUser(user);
       console.log(await user.functions.winners());
+      console.log("done.")
     }
     loginAnonymous();
   }, []);
