@@ -15,6 +15,9 @@
     color: #313000;
     border: 5px solid #fae277;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
 }
 
 .leaderboard {
@@ -23,9 +26,13 @@
 }
 
 .leaderboard-items {
+    display: grid;
+    grid-template-columns: auto auto;
     font-family: "Alagard";
     font-size: 32pt;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
     border-collapse: collapse;
     border: 5px solid #726217;
 }
@@ -35,7 +42,8 @@
     color: white;
 }
 
-.line-item:nth-child(even) {
+.line-item:nth-child(4n+1),
+.line-item:nth-child(4n+2) {
     background-color: #454413;
 }
 
