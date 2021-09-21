@@ -7,23 +7,22 @@ const REALM_APP_ID = "leaderboard-anwug";
 const app = new Realm.App({ id: REALM_APP_ID });
 
 function App() {
-  //const [user, setUser] = React.useState(app.currentUser);
   const [scores, setScores] = useState([]);
 
   useEffect(() => {
     const loginAnonymous = async () => {
       const user = await app.logIn(Realm.Credentials.anonymous());
-      //setUser(user);
       var winners = await user.functions.winners()
       setScores(winners);
 
-      // TODO - unregister watch when unmounting component etc.
       const winnersCollection = user.mongoClient("mongodb-atlas").db("reinvent_demo").collection("scores");
-      for await (const change of winnersCollection.watch()) {
-        console.log("Collection updated.")
+      const winnerStream = winnersCollection.watch();
+      for await (const change of winnerStream) {
         winners = await user.functions.winners()
         setScores(winners);
       }
+
+      return () => winnerStream.return();
     }
     loginAnonymous();
   }, []);
