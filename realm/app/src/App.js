@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LeaderBoard from "./LeaderBoard.js";
 import './App.css';
+import Particles from "react-tsparticles";
 
 import * as Realm from "realm-web";
 const REALM_APP_ID = "leaderboard-anwug";
@@ -56,6 +57,19 @@ function App() {
     <div className="App">
       <button onClick={onClick}>Shuffle</button>
       <LeaderBoard winners={scores} />
+      <div id="particles">
+        <Particles options={{
+          move: {
+            direction: "bottom",
+            enable: true,
+          },
+          background: {
+            color: {
+              value: "#0d47a1",
+            },
+          },
+        }} />
+      </div>
     </div>
   );
 }
