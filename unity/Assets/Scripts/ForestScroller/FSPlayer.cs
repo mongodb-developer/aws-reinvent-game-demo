@@ -38,8 +38,14 @@ public class FSPlayer : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.collider.name == "Ground") {
+        if(collision.collider.name == "Ground" || collision.collider.name == "Platforms") {
             _isGrounded = true;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider) {
+        if(collider.gameObject.tag == "Pineapple") {
+            collider.gameObject.SetActive(false);
         }
     }
 

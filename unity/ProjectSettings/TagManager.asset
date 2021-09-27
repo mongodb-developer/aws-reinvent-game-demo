@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Hook
   - Fish
+  - Pineapple
   layers:
   - Default
   - TransparentFX
