@@ -5,6 +5,7 @@ using UnityEngine;
 public class FSPlayer : MonoBehaviour {
 
     private Rigidbody2D _rb2d;
+    private Animator _animator;
     private bool _isGrounded = true;
 
     [Range(1, 10)]
@@ -18,16 +19,24 @@ public class FSPlayer : MonoBehaviour {
 
     void Start() {
         _rb2d = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     void FixedUpdate() {
         if(Input.GetKey(KeyCode.LeftArrow)) {
+            _animator.SetBool("doWalk", true);
+            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             transform.position += Vector3.left * movementSpeed * Time.deltaTime;
         } else if(Input.GetKey(KeyCode.RightArrow)) {
+            _animator.SetBool("doWalk", true);
+            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+        } else {
+            _animator.SetBool("doWalk", false);
         }
 
         if(Input.GetKey(KeyCode.Space) && _isGrounded == true) {
+            _animator.SetBool("doJump", true);
             _rb2d.velocity += Vector2.up * jumpVelocity;
             _isGrounded = false;
         }
@@ -39,6 +48,7 @@ public class FSPlayer : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D collision) {
         if(collision.collider.name == "Ground" || collision.collider.name == "Platforms") {
+            _animator.SetBool("doJump", false);
             _isGrounded = true;
         }
     }
