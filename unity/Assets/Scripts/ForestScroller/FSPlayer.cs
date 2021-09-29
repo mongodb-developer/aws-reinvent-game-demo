@@ -8,6 +8,8 @@ public class FSPlayer : MonoBehaviour {
     private Animator _animator;
     private bool _isGrounded = true;
 
+    public ForestScrollerController controller;
+
     [Range(1, 10)]
     public float movementSpeed = 5.0f;
 
@@ -44,6 +46,10 @@ public class FSPlayer : MonoBehaviour {
         if((_rb2d.velocity.y < 0) || (_rb2d.velocity.y > 0 && !Input.GetKey(KeyCode.Space))) {
             _rb2d.velocity += Vector2.up * Physics2D.gravity.y * (fallingMultiplier - 1) * Time.fixedDeltaTime;
         }
+
+        if(transform.position.y <= -13.0f) {
+            controller.ShowGameOverModal();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
@@ -55,6 +61,7 @@ public class FSPlayer : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider) {
         if(collider.gameObject.tag == "Pineapple") {
+            controller.IncreaseScore(1);
             collider.gameObject.SetActive(false);
         }
     }
