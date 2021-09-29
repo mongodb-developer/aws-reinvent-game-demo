@@ -12,9 +12,9 @@ public class IRPlayer : MonoBehaviour
     }
 
     void Update() {
-        if(Input.GetKey(KeyCode.UpArrow) && transform.position.y <= 3.25) {
+        if(Input.GetKey(KeyCode.UpArrow) && transform.position.y <= 4.25) {
             transform.position += Vector3.up * movementSpeed * Time.deltaTime;
-        } else if(Input.GetKey(KeyCode.DownArrow) && transform.position.y >= -3.25) {
+        } else if(Input.GetKey(KeyCode.DownArrow) && transform.position.y >= -4.25) {
             transform.position += Vector3.down * movementSpeed * Time.deltaTime;
         }
     }
