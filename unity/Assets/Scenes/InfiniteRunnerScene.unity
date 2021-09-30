@@ -6325,6 +6325,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: IRGameOverModal
       objectReference: {fileID: 0}
+    - target: {fileID: 28425776206218255, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c34b5f16d7414d7a84b630338c6c819, type: 3}
 --- !u!1001 &4392728891034061755
@@ -6393,6 +6398,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: IRGameSuccessModal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4392728891747455181, guid: f4c4a239aacbd47e384fce6ac3ba8782,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4c4a239aacbd47e384fce6ac3ba8782, type: 3}

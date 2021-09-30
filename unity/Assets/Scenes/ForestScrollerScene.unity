@@ -1270,6 +1270,16 @@ PrefabInstance:
       value: Your data might look like a forest, but if you take a breath and try
         again, you might be pleasantly surprised!
       objectReference: {fileID: 0}
+    - target: {fileID: 28425775886338469, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 28425776181223464, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 28425776206218253, guid: 8c34b5f16d7414d7a84b630338c6c819,
         type: 3}
       propertyPath: m_RootOrder
@@ -1335,6 +1345,121 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 801065759379381146, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 801403017818226680, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 801403017818226680, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 801403017818226680, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360460129914120143, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_Text
+      value: RETRY
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360460129914120143, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360460129914120143, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360460129914120143, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360460129914120143, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 230
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360460129914120143, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360460129914120143, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2360460129914120143, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363255060225181356, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 214
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363255060225181356, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363255060225181356, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.34706023
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363255060225181356, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.3565
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090867073009073260, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090867073009073260, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090867073009073260, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.5372549
+      objectReference: {fileID: 0}
+    - target: {fileID: 3090867073009073260, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.098039225
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697331879539718378, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049724466483405036, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049724466483405036, guid: 8c34b5f16d7414d7a84b630338c6c819,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1158368930}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c34b5f16d7414d7a84b630338c6c819, type: 3}
 --- !u!4 &424935614 stripped
@@ -3154,6 +3279,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ade00caaa424668b9412b92d6ad46f, type: 3}
+--- !u!114 &1158368930 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3090867073009073260, guid: 8c34b5f16d7414d7a84b630338c6c819,
+    type: 3}
+  m_PrefabInstance: {fileID: 424935613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1269039408
 PrefabInstance:
   m_ObjectHideFlags: 0
