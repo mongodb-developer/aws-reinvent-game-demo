@@ -10,6 +10,7 @@ public class ForestScrollerController : MonoBehaviour {
 
     public GameObject mainMenuModal;
     public GameObject gameOverModal;
+    public GameObject gameSuccessModal;
     public Text scoreText;
 
     void Start() {
@@ -43,6 +44,13 @@ public class ForestScrollerController : MonoBehaviour {
         Time.timeScale = 0.0f;
         // RealmController.Instance.IncreaseChangeStreamsPlayCount();
         // RealmController.Instance.IncreaseChangeStreamsScore(_score);
+    }
+
+    public void ShowGameSuccessModal() {
+        gameSuccessModal.SetActive(true);
+        Time.timeScale = 0.0f;
+        // RealmController.Instance.IncreaseFishingPlayCount();
+        // RealmController.Instance.IncreaseFishingScore(_score);
     }
 
 }

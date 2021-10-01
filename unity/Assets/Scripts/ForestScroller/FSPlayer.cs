@@ -56,6 +56,8 @@ public class FSPlayer : MonoBehaviour {
         if(collision.collider.name == "Ground" || collision.collider.name == "Platforms") {
             _animator.SetBool("doJump", false);
             _isGrounded = true;
+        } else if(collision.collider.tag == "Obstacle") {
+            controller.ShowGameOverModal();
         }
     }
 
@@ -63,6 +65,8 @@ public class FSPlayer : MonoBehaviour {
         if(collider.gameObject.tag == "Pineapple") {
             controller.IncreaseScore(1);
             collider.gameObject.SetActive(false);
+        } else if(collider.gameObject.tag == "Trophy") {
+            controller.ShowGameSuccessModal();
         }
     }
 
