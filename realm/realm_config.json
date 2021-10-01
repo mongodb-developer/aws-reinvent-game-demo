@@ -1,7 +1,7 @@
 {
-    "app_id": "leaderboard-anwug",
+    "app_id": "demogames-sdyhk",
     "config_version": 20210101,
-    "name": "LeaderBoard",
-    "location": "US-VA",
+    "name": "DemoGames",
+    "location": "US-CA",
     "deployment_model": "GLOBAL"
 }

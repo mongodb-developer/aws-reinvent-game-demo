@@ -3,7 +3,7 @@ import LeaderBoard from "./LeaderBoard.js";
 import "./App.css";
 
 import * as Realm from "realm-web";
-const REALM_APP_ID = "leaderboard-anwug";
+const REALM_APP_ID = "demogames-sdyhk";
 const app = new Realm.App({ id: REALM_APP_ID });
 
 export function winnerDiff(oldWinners, newWinners) {
