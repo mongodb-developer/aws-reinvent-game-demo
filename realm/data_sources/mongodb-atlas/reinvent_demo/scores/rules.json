@@ -1,6 +1,6 @@
 {
     "collection": "scores",
-    "database": "reinvent_demo",
+    "database": "demo_games",
     "roles": [
         {
             "name": "default",

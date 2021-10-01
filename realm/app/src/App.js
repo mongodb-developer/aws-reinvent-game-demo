@@ -68,7 +68,7 @@ function App({ onClick }) {
 
       const winnersCollection = user
         .mongoClient("mongodb-atlas")
-        .db("reinvent_demo")
+        .db("demo_games")
         .collection("scores");
       const winnerStream = winnersCollection.watch();
       for await (const change of winnerStream) {
@@ -106,9 +106,6 @@ function App({ onClick }) {
   return (
     <div className="App">
       <LeaderBoard winners={scores} />
-      <button id="shuffle" onClick={onClick}>
-        Shuffle
-      </button>
     </div>
   );
 }
