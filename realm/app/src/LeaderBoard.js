@@ -1,22 +1,25 @@
 import LineItem from "./LineItem.js";
 import "./LeaderBoard.css";
-import { Flipper } from 'react-flip-toolkit';
+import { Flipper } from "react-flip-toolkit";
 import React from "react";
 
 function LeaderBoard({ winners }) {
-    const flipKey = winners.map((winner) => winner.username).join('');
-    const winnerItems = winners.map((winner) => (
-        <LineItem key={winner.username} winner={winner} />
-    ));
+  console.log("Winners:", winners);
+  const flipKey = Object.entries(winners)
+    .map(([username, winner]) => username)
+    .join("");
+  const winnerItems = Object.entries(winners).map(([username, winner]) => (
+    <LineItem key={username} winner={{ username, ...winner }} />
+  ));
 
-    return (
-        <div className="leaderboard">
-            <h1>Leaderboard</h1>
-            <Flipper className="leaderboard-items" flipKey={flipKey}>
-                {winnerItems}
-            </Flipper>
-        </div>
-    );
+  return (
+    <div className="leaderboard">
+      <h1>Leaderboard</h1>
+      <Flipper className="leaderboard-items" flipKey={flipKey}>
+        {winnerItems}
+      </Flipper>
+    </div>
+  );
 }
 
 export default LeaderBoard;

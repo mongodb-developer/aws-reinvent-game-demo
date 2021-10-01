@@ -1,75 +1,114 @@
 import React, { useState, useEffect } from "react";
 import LeaderBoard from "./LeaderBoard.js";
-import './App.css';
-import Particles from "react-tsparticles";
+import "./App.css";
 
 import * as Realm from "realm-web";
 const REALM_APP_ID = "leaderboard-anwug";
 const app = new Realm.App({ id: REALM_APP_ID });
 
-function App() {
+export function winnerDiff(oldWinners, newWinners) {
+  if (oldWinners === null) {
+    return Object.fromEntries(
+      newWinners.map((newWinner, index) => {
+        const username = newWinner.username;
+        const score = newWinner.score;
+        return [
+          username,
+          {
+            score: score,
+            change: null,
+            index: index,
+          },
+        ];
+      })
+    );
+  } else {
+    return Object.fromEntries(
+      newWinners.map((newWinner, index) => {
+        const username = newWinner.username;
+        const score = newWinner.score;
+        const oldWinner =
+          oldWinners === null || oldWinners[username] === undefined
+            ? { index: null, score: null }
+            : oldWinners[username];
+        const previousIndex = oldWinner.index;
+        const previousScore = oldWinner.score;
+        let change = null; // Player's position and score are unchanged.
+        if (previousIndex === null || index < previousIndex) {
+          change = "up"; // Player has moved up at least one space.
+        } else if (index > previousIndex) {
+          change = "down"; // Player has been moved down (because someone else moved up)
+        } else if (score > previousScore) {
+          change = "inc"; // Player's score has increased, but no position change.
+        }
+        return [
+          username,
+          {
+            score: score,
+            change: change,
+            index: index,
+            previousIndex: previousIndex,
+            previousScore: previousScore,
+          },
+        ];
+      })
+    );
+  }
+}
+
+function App({ onClick }) {
+  console.log("App render!!!");
   const [scores, setScores] = useState([]);
 
   useEffect(() => {
     const loginAnonymous = async () => {
       const user = await app.logIn(Realm.Credentials.anonymous());
-      var winners = await user.functions.winners()
+      var winners = winnerDiff(null, await user.functions.winners());
       setScores(winners);
 
-      const winnersCollection = user.mongoClient("mongodb-atlas").db("reinvent_demo").collection("scores");
+      const winnersCollection = user
+        .mongoClient("mongodb-atlas")
+        .db("reinvent_demo")
+        .collection("scores");
       const winnerStream = winnersCollection.watch();
       for await (const change of winnerStream) {
-        winners = await user.functions.winners()
+        winners = winnerDiff(winners, await user.functions.winners());
         setScores(winners);
       }
 
-      return () => winnerStream.return();
-    }
+      return () => {
+        winnerStream.return();
+        console.log("Unregister from change stream.");
+      };
+    };
     loginAnonymous();
   }, []);
 
-
-  function shuffle(a) {
-    let array = [...a];
-    let currentIndex = array.length, randomIndex;
-
-    // While there remain elements to shuffle...
-    while (currentIndex !== 0) {
-
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
-    }
-
-    return array;
-  }
-  const onClick = () => {
-    console.log("Shuffle");
-    setScores(shuffle(scores));
-    console.log(scores);
-  };
+  useEffect(() => {
+    const boom = () => {
+      const increased = Object.entries(scores).filter(
+        ([username, winner]) =>
+          winner.change === "up" || winner.change === "inc"
+      );
+      if (increased.length > 0) {
+        const element =
+          document.querySelectorAll(".score")[increased[0][1].index];
+        const rect = element.getBoundingClientRect();
+        document.getElementById("particles").__particles.boom.kaboom({
+          x: rect.left + (rect.right - rect.left) / 2,
+          y: rect.top + (rect.bottom - rect.top) / 2,
+        });
+      }
+    };
+    boom();
+  });
 
   return (
     <div className="App">
-      <button onClick={onClick}>Shuffle</button>
       <LeaderBoard winners={scores} />
-      <div id="particles">
-        <Particles options={{
-          move: {
-            direction: "bottom",
-            enable: true,
-          },
-          background: {
-            color: {
-              value: "#0d47a1",
-            },
-          },
-        }} />
-      </div>
+      <button id="shuffle" onClick={onClick}>
+        Shuffle
+      </button>
     </div>
   );
 }
