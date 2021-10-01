@@ -42,15 +42,14 @@ public class ForestScrollerController : MonoBehaviour {
     public void ShowGameOverModal() {
         gameOverModal.SetActive(true);
         Time.timeScale = 0.0f;
-        // RealmController.Instance.IncreaseChangeStreamsPlayCount();
-        // RealmController.Instance.IncreaseChangeStreamsScore(_score);
+        RealmController.Instance.IncreaseForestScrollerPlayCount();
     }
 
     public void ShowGameSuccessModal() {
         gameSuccessModal.SetActive(true);
         Time.timeScale = 0.0f;
-        // RealmController.Instance.IncreaseFishingPlayCount();
-        // RealmController.Instance.IncreaseFishingScore(_score);
+        RealmController.Instance.IncreaseForestScrollerPlayCount();
+        RealmController.Instance.IncreaseForestScrollerScore(_score);
     }
 
 }

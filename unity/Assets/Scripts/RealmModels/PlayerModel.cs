@@ -44,12 +44,15 @@ public class PlayerModel_games : EmbeddedObject {
     public PlayerModel_games_target_practice TargetPractice { get; set; }
     [MapTo("fishing")]
     public PlayerModel_games_fishing Fishing { get; set; }
+    [MapTo("forest_scroller")]
+    public PlayerModel_games_forest_scroller ForestScroller { get; set; }
 
     public PlayerModel_games() {
         this.ChangeStreams = new PlayerModel_games_change_streams();
         this.DanceDance = new PlayerModel_games_dance_dance();
         this.TargetPractice = new PlayerModel_games_target_practice();
         this.Fishing = new PlayerModel_games_fishing();
+        this.ForestScroller = new PlayerModel_games_forest_scroller();
     }
 
 }
@@ -90,6 +93,20 @@ public class PlayerModel_games_target_practice : EmbeddedObject {
     public int? TotalPlays { get; set; }
 
     public PlayerModel_games_target_practice() {
+        this.HighScore = 0;
+        this.TotalPlays = 0;
+    }
+
+}
+
+public class PlayerModel_games_forest_scroller : EmbeddedObject {
+
+    [MapTo("high_score")]
+    public int? HighScore { get; set; }
+    [MapTo("total_plays")]
+    public int? TotalPlays { get; set; }
+
+    public PlayerModel_games_forest_scroller() {
         this.HighScore = 0;
         this.TotalPlays = 0;
     }

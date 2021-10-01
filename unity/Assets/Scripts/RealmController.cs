@@ -14,7 +14,7 @@ public class RealmController : MonoBehaviour {
 
     public static RealmController Instance;
 
-    public string realmAppId = "reinvent-kvqqn";
+    public string realmAppId = "demogames-sdyhk";
 
     private Realm _realm;
     private App _realmApp;
@@ -124,6 +124,22 @@ public class RealmController : MonoBehaviour {
         if(currentScore > player.Games.Fishing.HighScore) {
             _realm.Write(() => {
                 player.Games.Fishing.HighScore = currentScore;
+            });
+        }
+    }
+
+    public void IncreaseForestScrollerPlayCount() {
+        PlayerModel player = GetCurrentPlayer();
+        _realm.Write(() => {
+            player.Games.ForestScroller.TotalPlays++;
+        });
+    }
+
+    public void IncreaseForestScrollerScore(int currentScore) {
+        PlayerModel player = GetCurrentPlayer();
+        if(currentScore > player.Games.ForestScroller.HighScore) {
+            _realm.Write(() => {
+                player.Games.ForestScroller.HighScore = currentScore;
             });
         }
     }
