@@ -16,9 +16,11 @@ public class FPlayer : MonoBehaviour {
 
     void Update() {
         if(_isCasting == false) {
-            if(Input.GetKey(KeyCode.LeftArrow) && transform.position.x >= -6.75f) {
+            if(Input.GetKey(KeyCode.LeftArrow) && transform.position.x >= -9.25f) {
+                transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
                 transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-            } else if(Input.GetKey(KeyCode.RightArrow) && transform.position.x <= 6.75f) {
+            } else if(Input.GetKey(KeyCode.RightArrow) && transform.position.x <= 9.25f) {
+                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 transform.position += Vector3.right * movementSpeed * Time.deltaTime;
             } else if(Input.GetKeyUp(KeyCode.Space)) {
                 _isCasting = true;

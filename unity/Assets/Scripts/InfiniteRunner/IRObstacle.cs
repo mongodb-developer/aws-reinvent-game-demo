@@ -6,12 +6,12 @@ public class IRObstacle : MonoBehaviour {
 
     public float movementSpeed;
 
-    private float[] _fixedPositionY = new float[] { -3.25f, 0.0f, 3.25f };
+    private float[] _fixedPositionY = new float[] { -3.75f, 0.0f, 3.75f };
     private float _acceleration = 1.0f;
 
     void OnEnable() {
         int randomPositionY = Random.Range(0, 3);
-        transform.position = new Vector3(10.0f, _fixedPositionY[randomPositionY], 0.0f);
+        transform.position = new Vector3(14.0f, _fixedPositionY[randomPositionY], 0.0f);
     }
 
     void Update() {
@@ -27,7 +27,7 @@ public class IRObstacle : MonoBehaviour {
             _acceleration = 1.25f;
         }
         transform.position += Vector3.left * movementSpeed * Time.deltaTime * _acceleration;
-        if(transform.position.x < -10.0) {
+        if(transform.position.x < -14.0) {
             gameObject.SetActive(false);
         }
     }
