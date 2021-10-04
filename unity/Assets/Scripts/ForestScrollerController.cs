@@ -12,6 +12,8 @@ public class ForestScrollerController : MonoBehaviour {
     public GameObject gameOverModal;
     public GameObject gameSuccessModal;
     public Text scoreText;
+    public Text timeRemainingText;
+    public float playTime = 100.0f;
 
     void Start() {
         _score = 0;
@@ -20,6 +22,11 @@ public class ForestScrollerController : MonoBehaviour {
 
     void Update() {
         scoreText.text = "SCORE: " + _score.ToString();
+        timeRemainingText.text = "TIME REMAINING: " + ((int)playTime).ToString();
+        playTime -= Time.deltaTime;
+        if(playTime <= 0) {
+            ShowGameOverModal();
+        }
         if(Input.GetKeyUp(KeyCode.Escape)) {
             ToggleMainMenu();
         }
@@ -49,7 +56,7 @@ public class ForestScrollerController : MonoBehaviour {
         gameSuccessModal.SetActive(true);
         Time.timeScale = 0.0f;
         RealmController.Instance.IncreaseForestScrollerPlayCount();
-        RealmController.Instance.IncreaseForestScrollerScore(_score);
+        RealmController.Instance.IncreaseForestScrollerScore(_score + ((int) playTime));
     }
 
 }
