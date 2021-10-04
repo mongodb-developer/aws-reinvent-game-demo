@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FSPlayer : MonoBehaviour {
 
@@ -52,11 +53,24 @@ public class FSPlayer : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
+    void OnCollisionStay2D(Collision2D collision) {
         if(collision.collider.name == "Ground" || collision.collider.name == "Platforms") {
-            _animator.SetBool("doJump", false);
-            _isGrounded = true;
-        } else if(collision.collider.tag == "Obstacle") {
+            foreach(ContactPoint2D contactPoint in collision.contacts) {
+                if(Math.Round(contactPoint.normal.x) != 0) {
+                    _isGrounded = false;
+                } else if(Math.Round(contactPoint.normal.y) >= 1 && _rb2d.velocity.y <= 0) {
+                    _animator.SetBool("doJump", false);
+                    _isGrounded = true;
+                    return;
+                } else {
+                    _isGrounded = false;
+                }
+            }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.collider.tag == "Obstacle") {
             controller.ShowGameOverModal();
         }
     }
