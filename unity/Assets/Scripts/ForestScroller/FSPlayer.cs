@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.InputSystem;
 
 public class FSPlayer : MonoBehaviour {
 
@@ -26,11 +27,11 @@ public class FSPlayer : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if(Input.GetKey(KeyCode.LeftArrow)) {
+        if(Keyboard.current.leftArrowKey.isPressed) {
             _animator.SetBool("doWalk", true);
             transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-        } else if(Input.GetKey(KeyCode.RightArrow)) {
+        } else if(Keyboard.current.rightArrowKey.isPressed) {
             _animator.SetBool("doWalk", true);
             transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             transform.position += Vector3.right * movementSpeed * Time.deltaTime;
@@ -38,13 +39,13 @@ public class FSPlayer : MonoBehaviour {
             _animator.SetBool("doWalk", false);
         }
 
-        if(Input.GetKey(KeyCode.Space) && _isGrounded == true) {
+        if(Keyboard.current.spaceKey.isPressed && _isGrounded == true) {
             _animator.SetBool("doJump", true);
             _rb2d.velocity += Vector2.up * jumpVelocity;
             _isGrounded = false;
         }
 
-        if((_rb2d.velocity.y < 0) || (_rb2d.velocity.y > 0 && !Input.GetKey(KeyCode.Space))) {
+        if((_rb2d.velocity.y < 0) || (_rb2d.velocity.y > 0 && !Keyboard.current.spaceKey.isPressed)) {
             _rb2d.velocity += Vector2.up * Physics2D.gravity.y * (fallingMultiplier - 1) * Time.fixedDeltaTime;
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class LoginController : MonoBehaviour {
 
@@ -19,7 +20,7 @@ public class LoginController : MonoBehaviour {
     }
 
     void Update() {
-        if(Input.GetKey(KeyCode.Escape)) {
+        if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
             Application.Quit();
         }
     }

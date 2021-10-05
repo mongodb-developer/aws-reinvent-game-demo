@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class InfiniteRunnerController : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class InfiniteRunnerController : MonoBehaviour
     }
 
     void Update() {
-        if(Input.GetKeyUp(KeyCode.Escape)) {
+        if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
             ToggleMainMenu();
         }
         if((int) Time.timeSinceLevelLoad >= 100 && gameSuccessModal.activeInHierarchy == false) {

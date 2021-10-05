@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class ForestScrollerController : MonoBehaviour {
 
@@ -27,7 +28,7 @@ public class ForestScrollerController : MonoBehaviour {
         if(playTime <= 0) {
             ShowGameOverModal();
         }
-        if(Input.GetKeyUp(KeyCode.Escape)) {
+        if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
             ToggleMainMenu();
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class FishingController : MonoBehaviour {
 
@@ -35,7 +36,7 @@ public class FishingController : MonoBehaviour {
         if((FObjectPool.SharedInstance.IsPoolFull() == true || playTime <= 0) && gameSuccessModal.activeInHierarchy == false) {
             ShowGameSuccessModal();
         }
-        if(Input.GetKeyUp(KeyCode.Escape)) {
+        if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
             ToggleMainMenu();
         }
     }

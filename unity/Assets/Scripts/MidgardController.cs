@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.InputSystem;
 
 public class MidgardController : MonoBehaviour {
 
@@ -24,8 +25,8 @@ public class MidgardController : MonoBehaviour {
 
     void Update() {
         totalScoreText.text = RealmController.Instance != null ? "TOTAL SCORE: " + RealmController.Instance.GetCurrentPlayer().TotalScore.ToString() : "TOTAL SCORE: ";
-        KeyCode keyPressed = DetectKeyPressed();
-        if(keyPressed == KeyCode.Escape) {
+        Key keyPressed = DetectKeyPressed();
+        if(keyPressed == Key.Escape) {
             ToggleMainMenu();
         } else {
             AddKeyStrokeToHistory(keyPressed.ToString());
@@ -46,13 +47,15 @@ public class MidgardController : MonoBehaviour {
         }
     }
 
-    private KeyCode DetectKeyPressed() {
-        foreach(KeyCode key in Enum.GetValues(typeof(KeyCode))) {
-            if(Input.GetKeyDown(key)) {
-                return key;
+    private Key DetectKeyPressed() {
+        foreach(Key key in Enum.GetValues(typeof(Key))) {
+            if(key != Key.IMESelected) {
+                if(key != Key.None && Keyboard.current[key].wasPressedThisFrame) {
+                    return key;
+                }
             }
         }
-        return KeyCode.None;
+        return Key.None;
     }
 
     private void AddKeyStrokeToHistory(string keyStroke) {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class MPlayer : MonoBehaviour {
 
@@ -20,20 +21,24 @@ public class MPlayer : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if(Input.GetKey(KeyCode.UpArrow)) {
+        // if(Input.GetKey(KeyCode.UpArrow)) {
+        if(Keyboard.current.upArrowKey.isPressed) {
             ResetAnimations();
             _animator.SetBool("doWalkUp", true);
             transform.position += Vector3.up * movementSpeed * Time.deltaTime;
-        } else if(Input.GetKey(KeyCode.DownArrow)) {
+        // } else if(Input.GetKey(KeyCode.DownArrow)) {
+        } else if(Keyboard.current.downArrowKey.isPressed) {
             ResetAnimations();
             _animator.SetBool("doWalkDown", true);
             transform.position += Vector3.down * movementSpeed * Time.deltaTime;
-        } else if(Input.GetKey(KeyCode.LeftArrow)) {
+        // } else if(Input.GetKey(KeyCode.LeftArrow)) {
+        } else if(Keyboard.current.leftArrowKey.isPressed) {
             ResetAnimations();
             transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
             _animator.SetBool("doWalk", true);
             transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-        } else if(Input.GetKey(KeyCode.RightArrow)) {
+        // } else if(Input.GetKey(KeyCode.RightArrow)) {
+        } else if(Keyboard.current.rightArrowKey.isPressed) {
             ResetAnimations();
             transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
             _animator.SetBool("doWalk", true);
@@ -41,11 +46,11 @@ public class MPlayer : MonoBehaviour {
         } else {
             ResetAnimations();
         }
-        if(Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow)) {
-            if(RealmController.Instance != null) {
-                RealmController.Instance.UpdatePositionInMidgard(transform.position.x, transform.position.y);
-            }
-        }
+        // if(Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow)) {
+        //     if(RealmController.Instance != null) {
+        //         RealmController.Instance.UpdatePositionInMidgard(transform.position.x, transform.position.y);
+        //     }
+        // }
     }
 
     private void ResetAnimations() {

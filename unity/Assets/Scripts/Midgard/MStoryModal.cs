@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class MStoryModal : MonoBehaviour {
 
@@ -23,7 +24,7 @@ public class MStoryModal : MonoBehaviour {
     }
 
     void Update() {
-        if(Input.GetKeyUp(KeyCode.Return)) {
+        if(Keyboard.current.enterKey.wasReleasedThisFrame) {
             if(_messageNumber < storyMessages.Count - 1) {
                 _messageNumber++;
                 _storyText.text = storyMessages[_messageNumber];
