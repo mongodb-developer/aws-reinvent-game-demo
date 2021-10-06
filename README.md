@@ -9,6 +9,7 @@ This project uses free and paid assets from the Unity Asset Store. Due to licens
 - [Pixel Adventure 1](https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360) [FREE]
 - [2D Platformer Tileset](https://assetstore.unity.com/packages/2d/environments/2d-platformer-tileset-173155) [PAID]
 - [2D Character - Cat](https://assetstore.unity.com/packages/2d/characters/2d-character-cat-182816) [PAID]
+- [Onscreen Controls](https://www.kenney.nl/assets/onscreen-controls) [FREE]
 
 The assets can be downloaded through the Package Manager within Unity. They should already be properly configured after downloading.
 
