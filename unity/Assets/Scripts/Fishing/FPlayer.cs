@@ -10,17 +10,20 @@ public class FPlayer : MonoBehaviour {
     public FishingController controller;
 
     public bool _isCasting = false;
+
+    private PlayerInput _playerInput;
     
     void Start() {
-        
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     void Update() {
+        Vector2 input = _playerInput.actions["Move"].ReadValue<Vector2>();
         if(_isCasting == false) {
-            if(Keyboard.current.leftArrowKey.isPressed && transform.position.x >= -9.25f) {
+            if(input.x < 0 && transform.position.x >= -9.25f) {
                 transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
                 transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-            } else if(Keyboard.current.rightArrowKey.isPressed && transform.position.x <= 9.25f) {
+            } else if(input.x > 0 && transform.position.x <= 9.25f) {
                 transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 transform.position += Vector3.right * movementSpeed * Time.deltaTime;
             } else if(Keyboard.current.spaceKey.wasReleasedThisFrame) {
