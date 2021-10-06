@@ -59,6 +59,7 @@ sysinfo.txt
 *.apk
 *.aab
 *.unitypackage
+*.app
 
 # Crashlytics generated file
 crashlytics-build.properties
@@ -73,4 +74,3 @@ crashlytics-build.properties
 # Other
 .vscode
 .DS_Store*
-*.app

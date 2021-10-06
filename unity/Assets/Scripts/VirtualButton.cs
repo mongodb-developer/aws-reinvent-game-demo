@@ -6,7 +6,7 @@ public class VirtualButton : MonoBehaviour {
 
     void Awake() {
         if(Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer) {
-            // gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 
