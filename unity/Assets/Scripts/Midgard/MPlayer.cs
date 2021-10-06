@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using System;
 
 public class MPlayer : MonoBehaviour {
 
     private Animator _animator;
+    private PlayerInput _playerInput;
 
     public float movementSpeed = 5.0f;
 
@@ -18,31 +20,28 @@ public class MPlayer : MonoBehaviour {
 
     void Start() {
         _animator = GetComponent<Animator>();
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     void FixedUpdate() {
-        // if(Input.GetKey(KeyCode.UpArrow)) {
-        if(Keyboard.current.upArrowKey.isPressed) {
-            ResetAnimations();
-            _animator.SetBool("doWalkUp", true);
-            transform.position += Vector3.up * movementSpeed * Time.deltaTime;
-        // } else if(Input.GetKey(KeyCode.DownArrow)) {
-        } else if(Keyboard.current.downArrowKey.isPressed) {
-            ResetAnimations();
-            _animator.SetBool("doWalkDown", true);
-            transform.position += Vector3.down * movementSpeed * Time.deltaTime;
-        // } else if(Input.GetKey(KeyCode.LeftArrow)) {
-        } else if(Keyboard.current.leftArrowKey.isPressed) {
-            ResetAnimations();
-            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            _animator.SetBool("doWalk", true);
-            transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-        // } else if(Input.GetKey(KeyCode.RightArrow)) {
-        } else if(Keyboard.current.rightArrowKey.isPressed) {
-            ResetAnimations();
-            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-            _animator.SetBool("doWalk", true);
-            transform.position += Vector3.right * movementSpeed * Time.deltaTime;
+        Vector2 input = _playerInput.actions["Move"].ReadValue<Vector2>();
+        if(input != new Vector2(0, 0)) {
+            transform.position += new Vector3(input.x, input.y, 0) * movementSpeed * Time.deltaTime;
+            if(input == new Vector2(0f, 1f)) {
+                ResetAnimations();
+                _animator.SetBool("doWalkUp", true);
+            } else if(input == new Vector2(0f, -1f)) {
+                ResetAnimations();
+                _animator.SetBool("doWalkDown", true);
+            } else if(input.x < 0) {
+                ResetAnimations();
+                transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                _animator.SetBool("doWalk", true);
+            } else if(input.x > 0) {
+                ResetAnimations();
+                transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+                _animator.SetBool("doWalk", true);
+            }
         } else {
             ResetAnimations();
         }

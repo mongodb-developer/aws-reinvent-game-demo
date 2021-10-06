@@ -12,6 +12,7 @@ public class MStoryModal : MonoBehaviour {
     private Text _storyText;
     private SpriteRenderer _spriteRenderer;
     private int _messageNumber = 0;
+    private GameObject _virtualJoyStick;
 
     void OnEnable() {
         Time.timeScale = 0.0f;
@@ -21,16 +22,19 @@ public class MStoryModal : MonoBehaviour {
         _spriteRenderer = characterImageGameObject.GetComponent<SpriteRenderer>();
         _storyText.text = storyMessages[_messageNumber];
         _spriteRenderer.sprite = characterIcon;
+        _virtualJoyStick = transform.parent.Find("VirtualJoyStick").gameObject;
+        _virtualJoyStick.SetActive(false);
     }
 
     void Update() {
-        if(Keyboard.current.enterKey.wasReleasedThisFrame) {
+        if(Keyboard.current.enterKey.wasReleasedThisFrame || Pointer.current.press.wasPressedThisFrame) {
             if(_messageNumber < storyMessages.Count - 1) {
                 _messageNumber++;
                 _storyText.text = storyMessages[_messageNumber];
             } else {
                 _messageNumber = 0;
                 Time.timeScale = 1.0f;
+                _virtualJoyStick.SetActive(true);
                 gameObject.SetActive(false);
             }
         }
