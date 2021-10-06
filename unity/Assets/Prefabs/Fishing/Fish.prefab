@@ -146,7 +146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0b6e84e5854406896361841d68ffd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishSprite: {fileID: 0}
+  fishSprite:
+  - {fileID: 21300000, guid: 1a76c17c9545c49ffa1e3cb18a2670ab, type: 3}
+  - {fileID: 21300000, guid: b306d2e27626e4dea8233f70a3a79bb6, type: 3}
+  - {fileID: 21300000, guid: ca7e16d99a49f466695dd8665c69c94e, type: 3}
+  - {fileID: 21300000, guid: 5f6a8a6b6ff964d1abfaa89745d70dc2, type: 3}
+  - {fileID: 21300000, guid: e509fcc14531c480ca0cfe93944cd2c2, type: 3}
   fishWeight: 1
   movementSpeed: 4
   movementTimeout: 5
