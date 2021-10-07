@@ -569,7 +569,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &397565882
 Transform:
@@ -2142,7 +2142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacleToPool: {fileID: 8136405370562378381, guid: 81c628122c07f41e5990fd934b067f6d,
     type: 3}
-  obstaclePoolSize: 20
+  obstaclePoolSize: 10
 --- !u!4 &915191907
 Transform:
   m_ObjectHideFlags: 0
@@ -2383,7 +2383,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1391664158
 Transform:
