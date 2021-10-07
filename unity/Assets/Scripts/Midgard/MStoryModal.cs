@@ -34,7 +34,9 @@ public class MStoryModal : MonoBehaviour {
             } else {
                 _messageNumber = 0;
                 Time.timeScale = 1.0f;
-                _virtualJoyStick.SetActive(true);
+                if(Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer) {
+                    _virtualJoyStick.SetActive(true);
+                }
                 gameObject.SetActive(false);
             }
         }
