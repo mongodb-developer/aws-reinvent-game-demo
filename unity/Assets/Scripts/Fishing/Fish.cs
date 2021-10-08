@@ -18,12 +18,12 @@ public class Fish : MonoBehaviour {
     void OnEnable() {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteRenderer.sprite = fishSprite[Random.Range(0, fishSprite.Length)];
-        transform.position = new Vector3(Random.Range(-9.25f, 9.25f), Random.Range(-5.25f, 1.25f), 0.0f);
+        transform.position = new Vector3(Random.Range(-9.25f, 9.25f), Random.Range(-5.25f, 1.00f), 0.0f);
         fishWeight = Random.Range(1, 5);
     }
 
     void Start() {
-        _fishPosition = new Vector2(Random.Range(-9.25f, 9.25f), Random.Range(-5.25f, 1.25f));
+        _fishPosition = new Vector2(Random.Range(-9.25f, 9.25f), Random.Range(-5.25f, 1.00f));
         if(_fishPosition.x < transform.position.x) {
             transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
         } else {
@@ -36,7 +36,7 @@ public class Fish : MonoBehaviour {
         if(_isHooked == false) {
             _timeUntilCanMove -= Time.deltaTime;
             if(_isMoving == false && _timeUntilCanMove <= 0) {
-                _fishPosition = new Vector2(Random.Range(-9.25f, 9.25f), Random.Range(-5.25f, 1.25f));
+                _fishPosition = new Vector2(Random.Range(-9.25f, 9.25f), Random.Range(-5.25f, 1.00f));
                 if(_fishPosition.x < transform.position.x) {
                     transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
                 } else {
