@@ -409,8 +409,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 319062132}
   m_TextComponent: {fileID: 1829889760}
   m_Placeholder: {fileID: 2029357559}
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -1226,13 +1226,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1532276833}
   m_TextComponent: {fileID: 1837041180}
   m_Placeholder: {fileID: 263858815}
-  m_ContentType: 0
+  m_ContentType: 6
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 7
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 5
   m_CharacterLimit: 0
   m_OnSubmit:
     m_PersistentCalls:
