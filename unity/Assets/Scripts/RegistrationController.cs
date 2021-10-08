@@ -12,6 +12,10 @@ public class RegistrationController : MonoBehaviour {
     public InputField EmailInput;
     public InputField PasswordInput;
 
+    void Awake() {
+        Time.timeScale = 1.0f;
+    }
+
     void Start() {
         NameInput.text = "Team Atlas";
         EmailInput.text = "reinvent@example.com";

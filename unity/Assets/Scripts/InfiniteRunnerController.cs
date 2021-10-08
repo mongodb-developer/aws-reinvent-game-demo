@@ -19,6 +19,7 @@ public class InfiniteRunnerController : MonoBehaviour
     private Component[] _audioSources;
 
     void Awake() {
+        Time.timeScale = 1.0f;
         _audioSources = GetComponents(typeof(AudioSource));
     }
 

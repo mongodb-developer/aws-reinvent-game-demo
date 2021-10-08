@@ -16,6 +16,10 @@ public class ForestScrollerController : MonoBehaviour {
     public Text timeRemainingText;
     public float playTime = 100.0f;
 
+    void Awake() {
+        Time.timeScale = 1.0f;
+    }
+
     void Start() {
         _score = 0;
         _audioSource = GetComponent<AudioSource>();

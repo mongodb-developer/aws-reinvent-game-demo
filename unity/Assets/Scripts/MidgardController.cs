@@ -15,6 +15,7 @@ public class MidgardController : MonoBehaviour {
     private AudioSource _audioSource;
 
     void Awake() {
+        Time.timeScale = 1.0f;
         _keyStrokeHistory = new List<string>();
         _audioSource = GetComponent<AudioSource>();
     }
