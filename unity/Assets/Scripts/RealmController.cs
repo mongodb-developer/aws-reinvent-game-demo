@@ -45,6 +45,8 @@ public class RealmController : MonoBehaviour {
                     _realm.Dispose();
                 }
                 clientResetEx.InitiateClientReset();
+            } catch (Exception ex) {
+                Debug.LogError(ex);
             }
             return _realmUser.Id;
         }
@@ -67,7 +69,7 @@ public class RealmController : MonoBehaviour {
                 PlayerModel player = CreateCurrentPlayer(_realmUser.Id, name, email);
                 return _realmUser.Id;
             } catch (Exception ex) {
-                Debug.Log(ex);
+                Debug.LogError(ex);
             }
         }
         return "";
