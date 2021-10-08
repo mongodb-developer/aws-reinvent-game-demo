@@ -21,7 +21,7 @@ public class MidgardController : MonoBehaviour {
     }
 
     void Start() {
-        playerNameText.text = RealmController.Instance != null ? "PLAYER: " + RealmController.Instance.GetCurrentPlayer().Email : "PLAYER: ";
+        playerNameText.text = RealmController.Instance != null ? "PLAYER: " + RealmController.Instance.GetCurrentPlayer().Name : "PLAYER: ";
     }
 
     void Update() {

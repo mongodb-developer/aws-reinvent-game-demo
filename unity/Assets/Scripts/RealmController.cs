@@ -63,7 +63,9 @@ public class RealmController : MonoBehaviour {
                     MetadataPersistenceMode = MetadataPersistenceMode.NotEncrypted
                 });
                 await _realmApp.EmailPasswordAuth.RegisterUserAsync(email, password);
-                return await Login(email, password);
+                await Login(email, password);
+                PlayerModel player = CreateCurrentPlayer(_realmUser.Id, name, email);
+                return _realmUser.Id;
             } catch (Exception ex) {
                 Debug.Log(ex);
             }
@@ -77,6 +79,16 @@ public class RealmController : MonoBehaviour {
 
     public string GetAuthEmail() {
         return _realmUser != null ? _realmUser.Profile.Email : "";
+    }
+
+    public PlayerModel CreateCurrentPlayer(string id, string name, string email) {
+        PlayerModel player = _realm.Find<PlayerModel>(id);
+        if(player == null) {
+            _realm.Write(() => {
+                player = _realm.Add(new PlayerModel(id, name, email));
+            });
+        }
+        return player;
     }
 
     public PlayerModel GetCurrentPlayer() {

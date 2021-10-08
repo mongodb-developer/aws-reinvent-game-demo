@@ -17,9 +17,9 @@ public class RegistrationController : MonoBehaviour {
     }
 
     void Start() {
-        NameInput.text = "Team Atlas";
-        EmailInput.text = "reinvent@example.com";
-        PasswordInput.text = "password1234";
+        NameInput.text = "";
+        EmailInput.text = "";
+        PasswordInput.text = "";
         CancelButton.onClick.AddListener(Login);
         RegistrationButton.onClick.AddListener(Register);
     }
