@@ -431,7 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Kukic
   characterIcon: {fileID: 21300000, guid: fac24da07d8a0424fa3c59532a69712c, type: 3}
-  storyMessage: 
+  storyMessages: []
   storyModal: {fileID: 0}
   scene: 
 --- !u!1 &1075058740947095

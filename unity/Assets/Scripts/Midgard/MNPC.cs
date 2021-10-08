@@ -7,10 +7,10 @@ public class MNPC : MonoBehaviour {
 
     public string characterName;
     public Sprite characterIcon;
-    public string storyMessage;
+    public List<string> storyMessages;
     public GameObject storyModal;
     public string scene;
-
+    
     private bool _isStoryTelling = false;
 
     void Start() {
@@ -28,7 +28,7 @@ public class MNPC : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collider) {
         if(collider.tag == "Player" && Time.timeSinceLevelLoad > 1.0f) {
             _isStoryTelling = true;
-            storyModal.GetComponent<MStoryModal>().storyMessage = storyMessage;
+            storyModal.GetComponent<MStoryModal>().storyMessages = storyMessages;
             storyModal.GetComponent<MStoryModal>().characterIcon = characterIcon;
             storyModal.SetActive(true);
         }

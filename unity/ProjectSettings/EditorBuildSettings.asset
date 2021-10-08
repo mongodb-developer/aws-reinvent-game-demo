@@ -15,18 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MidgardScene.unity
     guid: e5cbb7bd46e5c4000aec1f53c6defe77
   - enabled: 1
-    path: Assets/Scenes/DanceDanceScene.unity
-    guid: 03c0b8eb6d699416188ae750a33a47c4
-  - enabled: 1
     path: Assets/Scenes/InfiniteRunnerScene.unity
     guid: 9f62e2a600c9e42c0937b6b95adb04e6
-  - enabled: 1
-    path: Assets/Scenes/TargetPracticeScene.unity
-    guid: e5ec37c180adf4c5d920eb44e90cf8a8
   - enabled: 1
     path: Assets/Scenes/FishingScene.unity
     guid: 2a68377b00afd4c39a06f669c7b0b181
   - enabled: 1
     path: Assets/Scenes/ForestScrollerScene.unity
     guid: 58dbffd36429f4086bef914114dd91a6
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 8aa7055e186fb4057bd2727519aafddc,
+      type: 2}

@@ -431,7 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Raboy
   characterIcon: {fileID: 21300000, guid: 9963e65462d2e4d87a31bb6372c35f6b, type: 3}
-  storyMessage: 
+  storyMessages: []
   storyModal: {fileID: 0}
   scene: 
 --- !u!1 &1075058740947095

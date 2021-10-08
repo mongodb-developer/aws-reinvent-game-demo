@@ -1,20 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class IRPlayer : MonoBehaviour
 {
     public float movementSpeed = 5.0f;
     public InfiniteRunnerController controller;
 
+    private PlayerInput _playerInput;
+
     void Start() {
-        
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     void Update() {
-        if(Input.GetKey(KeyCode.UpArrow) && transform.position.y <= 4.25) {
+        Vector2 input = _playerInput.actions["Move"].ReadValue<Vector2>();
+        if(input.y > 0 && transform.position.y <= 4.25) {
             transform.position += Vector3.up * movementSpeed * Time.deltaTime;
-        } else if(Input.GetKey(KeyCode.DownArrow) && transform.position.y >= -4.25) {
+        } else if(input.y < 0 && transform.position.y >= -4.25) {
             transform.position += Vector3.down * movementSpeed * Time.deltaTime;
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class LoginController : MonoBehaviour {
 
@@ -10,6 +11,10 @@ public class LoginController : MonoBehaviour {
     public Button RegistrationButton;
     public InputField EmailInput;
     public InputField PasswordInput;
+
+    void Awake() {
+        Time.timeScale = 1.0f;
+    }
 
     void Start() {
         EmailInput.text = "reinvent@example.com";
@@ -19,7 +24,7 @@ public class LoginController : MonoBehaviour {
     }
 
     void Update() {
-        if(Input.GetKey(KeyCode.Escape)) {
+        if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
             Application.Quit();
         }
     }

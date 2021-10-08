@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class ForestScrollerController : MonoBehaviour {
 
@@ -10,7 +11,14 @@ public class ForestScrollerController : MonoBehaviour {
 
     public GameObject mainMenuModal;
     public GameObject gameOverModal;
+    public GameObject gameSuccessModal;
     public Text scoreText;
+    public Text timeRemainingText;
+    public float playTime = 100.0f;
+
+    void Awake() {
+        Time.timeScale = 1.0f;
+    }
 
     void Start() {
         _score = 0;
@@ -19,7 +27,12 @@ public class ForestScrollerController : MonoBehaviour {
 
     void Update() {
         scoreText.text = "SCORE: " + _score.ToString();
-        if(Input.GetKeyUp(KeyCode.Escape)) {
+        timeRemainingText.text = "TIME REMAINING: " + ((int)playTime).ToString();
+        playTime -= Time.deltaTime;
+        if(playTime <= 0) {
+            ShowGameOverModal();
+        }
+        if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
             ToggleMainMenu();
         }
     }
@@ -41,8 +54,14 @@ public class ForestScrollerController : MonoBehaviour {
     public void ShowGameOverModal() {
         gameOverModal.SetActive(true);
         Time.timeScale = 0.0f;
-        // RealmController.Instance.IncreaseChangeStreamsPlayCount();
-        // RealmController.Instance.IncreaseChangeStreamsScore(_score);
+        RealmController.Instance.IncreaseForestScrollerPlayCount();
+    }
+
+    public void ShowGameSuccessModal() {
+        gameSuccessModal.SetActive(true);
+        Time.timeScale = 0.0f;
+        RealmController.Instance.IncreaseForestScrollerPlayCount();
+        RealmController.Instance.IncreaseForestScrollerScore(_score + ((int) playTime));
     }
 
 }

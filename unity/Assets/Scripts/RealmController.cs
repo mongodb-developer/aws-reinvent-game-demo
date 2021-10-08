@@ -14,7 +14,7 @@ public class RealmController : MonoBehaviour {
 
     public static RealmController Instance;
 
-    public string realmAppId = "reinvent-kvqqn";
+    public string realmAppId = "demogames-sdyhk";
 
     private Realm _realm;
     private App _realmApp;
@@ -45,6 +45,8 @@ public class RealmController : MonoBehaviour {
                     _realm.Dispose();
                 }
                 clientResetEx.InitiateClientReset();
+            } catch (Exception ex) {
+                Debug.LogError(ex);
             }
             return _realmUser.Id;
         }
@@ -63,9 +65,11 @@ public class RealmController : MonoBehaviour {
                     MetadataPersistenceMode = MetadataPersistenceMode.NotEncrypted
                 });
                 await _realmApp.EmailPasswordAuth.RegisterUserAsync(email, password);
-                return await Login(email, password);
+                await Login(email, password);
+                PlayerModel player = CreateCurrentPlayer(_realmUser.Id, name, email);
+                return _realmUser.Id;
             } catch (Exception ex) {
-                Debug.Log(ex);
+                Debug.LogError(ex);
             }
         }
         return "";
@@ -77,6 +81,16 @@ public class RealmController : MonoBehaviour {
 
     public string GetAuthEmail() {
         return _realmUser != null ? _realmUser.Profile.Email : "";
+    }
+
+    public PlayerModel CreateCurrentPlayer(string id, string name, string email) {
+        PlayerModel player = _realm.Find<PlayerModel>(id);
+        if(player == null) {
+            _realm.Write(() => {
+                player = _realm.Add(new PlayerModel(id, name, email));
+            });
+        }
+        return player;
     }
 
     public PlayerModel GetCurrentPlayer() {
@@ -124,6 +138,22 @@ public class RealmController : MonoBehaviour {
         if(currentScore > player.Games.Fishing.HighScore) {
             _realm.Write(() => {
                 player.Games.Fishing.HighScore = currentScore;
+            });
+        }
+    }
+
+    public void IncreaseForestScrollerPlayCount() {
+        PlayerModel player = GetCurrentPlayer();
+        _realm.Write(() => {
+            player.Games.ForestScroller.TotalPlays++;
+        });
+    }
+
+    public void IncreaseForestScrollerScore(int currentScore) {
+        PlayerModel player = GetCurrentPlayer();
+        if(currentScore > player.Games.ForestScroller.HighScore) {
+            _realm.Write(() => {
+                player.Games.ForestScroller.HighScore = currentScore;
             });
         }
     }

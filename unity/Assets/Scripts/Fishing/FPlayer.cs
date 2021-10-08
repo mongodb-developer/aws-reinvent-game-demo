@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class FPlayer : MonoBehaviour {
 
@@ -9,27 +10,30 @@ public class FPlayer : MonoBehaviour {
     public FishingController controller;
 
     public bool _isCasting = false;
+
+    private PlayerInput _playerInput;
     
     void Start() {
-        
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     void Update() {
+        Vector2 input = _playerInput.actions["Move"].ReadValue<Vector2>();
         if(_isCasting == false) {
-            if(Input.GetKey(KeyCode.LeftArrow) && transform.position.x >= -9.25f) {
+            if(input.x < 0 && transform.position.x >= -9.25f) {
                 transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
                 transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-            } else if(Input.GetKey(KeyCode.RightArrow) && transform.position.x <= 9.25f) {
+            } else if(input.x > 0 && transform.position.x <= 9.25f) {
                 transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 transform.position += Vector3.right * movementSpeed * Time.deltaTime;
-            } else if(Input.GetKeyUp(KeyCode.Space)) {
+            } else if(Keyboard.current.spaceKey.wasReleasedThisFrame) {
                 _isCasting = true;
                 fishHook.transform.position = new Vector3(transform.position.x, transform.position.y, 0.0f);
                 fishHook.SetActive(true);
                 fishHook.GetComponent<FHook>().DropLine();
             }
         } else {
-            if(Input.GetKeyUp(KeyCode.Space)) {
+            if(Keyboard.current.spaceKey.wasReleasedThisFrame) {
                 fishHook.GetComponent<FHook>().ReelLine();
             }
             _isCasting = fishHook.activeInHierarchy;

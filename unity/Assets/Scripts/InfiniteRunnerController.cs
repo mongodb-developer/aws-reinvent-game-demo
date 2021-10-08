@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class InfiniteRunnerController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class InfiniteRunnerController : MonoBehaviour
     private Component[] _audioSources;
 
     void Awake() {
+        Time.timeScale = 1.0f;
         _audioSources = GetComponents(typeof(AudioSource));
     }
 
@@ -26,7 +28,7 @@ public class InfiniteRunnerController : MonoBehaviour
     }
 
     void Update() {
-        if(Input.GetKeyUp(KeyCode.Escape)) {
+        if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
             ToggleMainMenu();
         }
         if((int) Time.timeSinceLevelLoad >= 100 && gameSuccessModal.activeInHierarchy == false) {

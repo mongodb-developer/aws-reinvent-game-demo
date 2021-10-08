@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 6717641145132152756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.2, y: -3.72, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,9 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6,
-    type: 3}
-  m_Color: {r: 0.83484775, g: 0.8490566, b: 0.13216448, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1a76c17c9545c49ffa1e3cb18a2670ab, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -147,7 +146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db0b6e84e5854406896361841d68ffd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishSprite: {fileID: 0}
+  fishSprite:
+  - {fileID: 21300000, guid: 1a76c17c9545c49ffa1e3cb18a2670ab, type: 3}
+  - {fileID: 21300000, guid: b306d2e27626e4dea8233f70a3a79bb6, type: 3}
+  - {fileID: 21300000, guid: ca7e16d99a49f466695dd8665c69c94e, type: 3}
+  - {fileID: 21300000, guid: 5f6a8a6b6ff964d1abfaa89745d70dc2, type: 3}
+  - {fileID: 21300000, guid: e509fcc14531c480ca0cfe93944cd2c2, type: 3}
   fishWeight: 1
   movementSpeed: 4
   movementTimeout: 5
