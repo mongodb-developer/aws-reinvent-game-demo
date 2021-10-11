@@ -15,7 +15,8 @@ public class RetryMenuButton : MonoBehaviour {
     
     void btnClick() {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LevelManager.Instance.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }

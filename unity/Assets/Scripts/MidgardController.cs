@@ -21,6 +21,7 @@ public class MidgardController : MonoBehaviour {
     }
 
     void Start() {
+        LevelManager.Instance.HideLoading();
         playerNameText.text = RealmController.Instance != null ? "PLAYER: " + RealmController.Instance.GetCurrentPlayer().Name : "PLAYER: ";
     }
 

@@ -15,7 +15,8 @@ public class MidgardMenuButton : MonoBehaviour {
 
     void btnClick() {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("MidgardScene");
+        // SceneManager.LoadScene("MidgardScene");
+        LevelManager.Instance.LoadScene("MidgardScene");
     }
 
 }
