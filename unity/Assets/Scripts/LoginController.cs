@@ -20,8 +20,8 @@ public class LoginController : MonoBehaviour {
 
     void Start() {
         LevelManager.Instance.HideLoading();
-        EmailInput.text = "reinvent@example.com";
-        PasswordInput.text = "password1234";
+        EmailInput.text = "";
+        PasswordInput.text = "";
         LoginButton.onClick.AddListener(Login);
         RegistrationButton.onClick.AddListener(Register);
     }
