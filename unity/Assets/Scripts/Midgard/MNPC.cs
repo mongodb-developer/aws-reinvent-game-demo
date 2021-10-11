@@ -20,7 +20,9 @@ public class MNPC : MonoBehaviour {
     void Update() {
         if(_isStoryTelling == true && storyModal.activeInHierarchy == false) {
             if(scene != "") {
-                SceneManager.LoadScene(scene);
+                _isStoryTelling = false;
+                // SceneManager.LoadScene(scene);
+                LevelManager.Instance.LoadScene(scene);
             }
         }
     }

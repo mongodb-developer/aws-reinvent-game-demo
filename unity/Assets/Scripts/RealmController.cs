@@ -47,10 +47,11 @@ public class RealmController : MonoBehaviour {
                 clientResetEx.InitiateClientReset();
             } catch (Exception ex) {
                 Debug.LogError(ex);
+                return ex.Message;
             }
-            return _realmUser.Id;
+            return "";
         }
-        return "";
+        return "Email / Password Required!";
     }
 
     public async void Logout() {
@@ -67,12 +68,13 @@ public class RealmController : MonoBehaviour {
                 await _realmApp.EmailPasswordAuth.RegisterUserAsync(email, password);
                 await Login(email, password);
                 PlayerModel player = CreateCurrentPlayer(_realmUser.Id, name, email);
-                return _realmUser.Id;
+                return "";
             } catch (Exception ex) {
                 Debug.LogError(ex);
+                return ex.Message;
             }
         }
-        return "";
+        return " All Fields Required!";
     }
 
     public string GetAuthId() {

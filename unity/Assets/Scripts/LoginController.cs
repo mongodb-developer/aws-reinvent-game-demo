@@ -11,14 +11,17 @@ public class LoginController : MonoBehaviour {
     public Button RegistrationButton;
     public InputField EmailInput;
     public InputField PasswordInput;
+    public Text ErrorText;
 
     void Awake() {
         Time.timeScale = 1.0f;
+        ErrorText.gameObject.SetActive(false);
     }
 
     void Start() {
-        EmailInput.text = "reinvent@example.com";
-        PasswordInput.text = "password1234";
+        LevelManager.Instance.HideLoading();
+        EmailInput.text = "";
+        PasswordInput.text = "";
         LoginButton.onClick.AddListener(Login);
         RegistrationButton.onClick.AddListener(Register);
     }
@@ -30,13 +33,22 @@ public class LoginController : MonoBehaviour {
     }
     
     async public void Login() {
-        if(await RealmController.Instance.Login(EmailInput.text, PasswordInput.text) != "") {
-            SceneManager.LoadScene("MidgardScene");
+        LevelManager.Instance.ShowLoading();
+        LevelManager.Instance.SetProgress(0.3f);
+        string loginResponse = await RealmController.Instance.Login(EmailInput.text, PasswordInput.text);
+        if(loginResponse == "") {
+            // SceneManager.LoadScene("MidgardScene");
+            LevelManager.Instance.LoadScene("MidgardScene");
+        } else {
+            ErrorText.gameObject.SetActive(true);
+            ErrorText.text = "ERROR: " + loginResponse;
+            LevelManager.Instance.HideLoading();
         }
     }
 
     public void Register() {
-        SceneManager.LoadScene("RegistrationScene");
+        // SceneManager.LoadScene("RegistrationScene");
+        LevelManager.Instance.LoadSceneWithoutModal("RegistrationScene");
     }
 
 }

@@ -24,6 +24,7 @@ public class InfiniteRunnerController : MonoBehaviour
     }
 
     void Start() {
+        LevelManager.Instance.HideLoading();
         _score = 0;
     }
 

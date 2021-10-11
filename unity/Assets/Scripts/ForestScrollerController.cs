@@ -21,6 +21,7 @@ public class ForestScrollerController : MonoBehaviour {
     }
 
     void Start() {
+        LevelManager.Instance.HideLoading();
         _score = 0;
         _audioSource = GetComponent<AudioSource>();
     }

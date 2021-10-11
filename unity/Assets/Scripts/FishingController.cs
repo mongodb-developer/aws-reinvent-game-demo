@@ -21,6 +21,7 @@ public class FishingController : MonoBehaviour {
     }
 
     void Start() {
+        LevelManager.Instance.HideLoading();
         _score = 0;
         for(int i = 0; i < FObjectPool.SharedInstance.fishPoolSize; i++) {
             GameObject fish = FObjectPool.SharedInstance.GetPooledFish();
