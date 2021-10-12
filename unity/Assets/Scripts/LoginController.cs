@@ -50,6 +50,8 @@ public class LoginController : MonoBehaviour {
                     EmailInput.ActivateInputField();
                     break;
             }
+        } else if(Keyboard.current.enterKey.wasReleasedThisFrame) {
+            Login();
         }
     }
     

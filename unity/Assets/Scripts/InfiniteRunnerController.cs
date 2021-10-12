@@ -12,6 +12,7 @@ public class InfiniteRunnerController : MonoBehaviour
     public GameObject gameSuccessModal;
     public GameObject mainMenuModal;
     public Text scoreText;
+    public Text instructionsText;
 
     private float _timeUntilObstacle = 1.0f;
     private int _score;
@@ -21,6 +22,9 @@ public class InfiniteRunnerController : MonoBehaviour
     void Awake() {
         Time.timeScale = 1.0f;
         _audioSources = GetComponents(typeof(AudioSource));
+        if(Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer) {
+            instructionsText.gameObject.SetActive(true);
+        }
     }
 
     void Start() {

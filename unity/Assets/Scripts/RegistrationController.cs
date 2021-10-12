@@ -56,6 +56,8 @@ public class RegistrationController : MonoBehaviour {
                     NameInput.ActivateInputField();
                     break;
             }
+        } else if(Keyboard.current.enterKey.wasReleasedThisFrame) {
+            Register();
         }
     }
     
