@@ -29,32 +29,34 @@ public class InfiniteRunnerController : MonoBehaviour
     }
 
     void Update() {
-        if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
-            ToggleMainMenu();
-        }
-        if((int) Time.timeSinceLevelLoad >= 100 && gameSuccessModal.activeInHierarchy == false) {
-            ShowGameSuccessModal();
-        } else if((int) Time.timeSinceLevelLoad >= 50) {
-            _acceleration = 2.50f;
-        } else if((int) Time.timeSinceLevelLoad >= 40) {
-            _acceleration = 2.25f;
-        } else if((int) Time.timeSinceLevelLoad >= 30) {
-            _acceleration = 1.75f;
-        } else if((int) Time.timeSinceLevelLoad >= 20) {
-            _acceleration = 1.50f;
-        } else if((int) Time.timeSinceLevelLoad >= 10) {
-            _acceleration = 1.25f;
-        }
-        _timeUntilObstacle -= Time.deltaTime * _acceleration;
-        if(_timeUntilObstacle <= 0) {
-            GameObject obstacle = IRObjectPool.SharedInstance.GetPooledObstacle();
-            if(obstacle != null) {
-                obstacle.SetActive(true);
+        if(!LevelManager.Instance.IsLoading()) {
+            if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
+                ToggleMainMenu();
             }
-            _timeUntilObstacle = obstacleTimer;
+            if((int) Time.timeSinceLevelLoad >= 100 && gameSuccessModal.activeInHierarchy == false) {
+                ShowGameSuccessModal();
+            } else if((int) Time.timeSinceLevelLoad >= 50) {
+                _acceleration = 2.50f;
+            } else if((int) Time.timeSinceLevelLoad >= 40) {
+                _acceleration = 2.25f;
+            } else if((int) Time.timeSinceLevelLoad >= 30) {
+                _acceleration = 1.75f;
+            } else if((int) Time.timeSinceLevelLoad >= 20) {
+                _acceleration = 1.50f;
+            } else if((int) Time.timeSinceLevelLoad >= 10) {
+                _acceleration = 1.25f;
+            }
+            _timeUntilObstacle -= Time.deltaTime * _acceleration;
+            if(_timeUntilObstacle <= 0) {
+                GameObject obstacle = IRObjectPool.SharedInstance.GetPooledObstacle();
+                if(obstacle != null) {
+                    obstacle.SetActive(true);
+                }
+                _timeUntilObstacle = obstacleTimer;
+            }
+            _score = (int) Time.timeSinceLevelLoad;
+            scoreText.text = "SCORE: " + _score.ToString();
         }
-        _score = (int) Time.timeSinceLevelLoad;
-        scoreText.text = "SCORE: " + _score.ToString();
     }
 
     private void ToggleMainMenu() {

@@ -27,14 +27,16 @@ public class ForestScrollerController : MonoBehaviour {
     }
 
     void Update() {
-        scoreText.text = "SCORE: " + _score.ToString();
-        timeRemainingText.text = "TIME REMAINING: " + ((int)playTime).ToString();
-        playTime -= Time.deltaTime;
-        if(playTime <= 0) {
-            ShowGameOverModal();
-        }
-        if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
-            ToggleMainMenu();
+        if(!LevelManager.Instance.IsLoading()) {
+            scoreText.text = "SCORE: " + _score.ToString();
+            timeRemainingText.text = "TIME REMAINING: " + ((int)playTime).ToString();
+            playTime -= Time.deltaTime;
+            if(playTime <= 0) {
+                ShowGameOverModal();
+            }
+            if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
+                ToggleMainMenu();
+            }
         }
     }
 

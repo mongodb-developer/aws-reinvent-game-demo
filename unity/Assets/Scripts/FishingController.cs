@@ -32,14 +32,16 @@ public class FishingController : MonoBehaviour {
     }
 
     void Update() {
-        scoreText.text = "SCORE: " + _score.ToString();
-        timeRemainingText.text = "TIME REMAINING: " + ((int) playTime).ToString();
-        playTime -= Time.deltaTime;
-        if((FObjectPool.SharedInstance.IsPoolFull() == true || playTime <= 0) && gameSuccessModal.activeInHierarchy == false) {
-            ShowGameSuccessModal();
-        }
-        if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
-            ToggleMainMenu();
+        if(!LevelManager.Instance.IsLoading()) {
+            scoreText.text = "SCORE: " + _score.ToString();
+            timeRemainingText.text = "TIME REMAINING: " + ((int) playTime).ToString();
+            playTime -= Time.deltaTime;
+            if((FObjectPool.SharedInstance.IsPoolFull() == true || playTime <= 0) && gameSuccessModal.activeInHierarchy == false) {
+                ShowGameSuccessModal();
+            }
+            if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
+                ToggleMainMenu();
+            }
         }
     }
 

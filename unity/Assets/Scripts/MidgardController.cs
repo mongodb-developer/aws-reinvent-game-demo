@@ -26,16 +26,18 @@ public class MidgardController : MonoBehaviour {
     }
 
     void Update() {
-        totalScoreText.text = RealmController.Instance != null ? "TOTAL SCORE: " + RealmController.Instance.GetCurrentPlayer().TotalScore.ToString() : "TOTAL SCORE: ";
-        Key keyPressed = DetectKeyPressed();
-        if(keyPressed == Key.Escape) {
-            ToggleMainMenu();
-        } else {
-            AddKeyStrokeToHistory(keyPressed.ToString());
-        }
-        if(GetKeyStrokeHistory().Equals("UpArrow,UpArrow,DownArrow,DownArrow,LeftArrow,RightArrow,LeftArrow,RightArrow,B,A")) {
-            RealmController.Instance.SetTotalScore(1337);
-            ClearKeyStrokeHistory();
+        if(!LevelManager.Instance.IsLoading()) {
+            totalScoreText.text = RealmController.Instance != null ? "TOTAL SCORE: " + RealmController.Instance.GetCurrentPlayer().TotalScore.ToString() : "TOTAL SCORE: ";
+            Key keyPressed = DetectKeyPressed();
+            if(keyPressed == Key.Escape) {
+                ToggleMainMenu();
+            } else {
+                AddKeyStrokeToHistory(keyPressed.ToString());
+            }
+            if(GetKeyStrokeHistory().Equals("UpArrow,UpArrow,DownArrow,DownArrow,LeftArrow,RightArrow,LeftArrow,RightArrow,B,A")) {
+                RealmController.Instance.SetTotalScore(1337);
+                ClearKeyStrokeHistory();
+            }
         }
     }
 
