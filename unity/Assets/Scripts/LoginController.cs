@@ -13,6 +13,8 @@ public class LoginController : MonoBehaviour {
     public InputField PasswordInput;
     public Text ErrorText;
 
+    private int _inputFieldIndex = 0;
+
     void Awake() {
         Time.timeScale = 1.0f;
         ErrorText.gameObject.SetActive(false);
@@ -22,6 +24,8 @@ public class LoginController : MonoBehaviour {
         LevelManager.Instance.HideLoading();
         EmailInput.text = "";
         PasswordInput.text = "";
+        EmailInput.Select();
+        EmailInput.ActivateInputField();
         LoginButton.onClick.AddListener(Login);
         RegistrationButton.onClick.AddListener(Register);
     }
@@ -29,6 +33,23 @@ public class LoginController : MonoBehaviour {
     void Update() {
         if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
             Application.Quit();
+        } else if(Keyboard.current.tabKey.wasReleasedThisFrame) {
+            _inputFieldIndex++;
+            switch(_inputFieldIndex) {
+                case 0:
+                    EmailInput.Select();
+                    EmailInput.ActivateInputField();
+                    break;
+                case 1:
+                    PasswordInput.Select();
+                    PasswordInput.ActivateInputField();
+                    break;
+                default:
+                    _inputFieldIndex = 0;
+                    EmailInput.Select();
+                    EmailInput.ActivateInputField();
+                    break;
+            }
         }
     }
     

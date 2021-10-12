@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class RegistrationController : MonoBehaviour {
 
@@ -12,6 +13,8 @@ public class RegistrationController : MonoBehaviour {
     public InputField EmailInput;
     public InputField PasswordInput;
     public Text ErrorText;
+
+    private int _inputFieldIndex = 0;
 
     void Awake() {
         Time.timeScale = 1.0f;
@@ -23,8 +26,37 @@ public class RegistrationController : MonoBehaviour {
         NameInput.text = "";
         EmailInput.text = "";
         PasswordInput.text = "";
+        NameInput.Select();
+        NameInput.ActivateInputField();
         CancelButton.onClick.AddListener(Login);
         RegistrationButton.onClick.AddListener(Register);
+    }
+
+    void Update() {
+        if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
+            Application.Quit();
+        } else if(Keyboard.current.tabKey.wasReleasedThisFrame) {
+            _inputFieldIndex++;
+            switch(_inputFieldIndex) {
+                case 0:
+                    NameInput.Select();
+                    NameInput.ActivateInputField();
+                    break;
+                case 1:
+                    EmailInput.Select();
+                    EmailInput.ActivateInputField();
+                    break;
+                case 2:
+                    PasswordInput.Select();
+                    PasswordInput.ActivateInputField();
+                    break;
+                default:
+                    _inputFieldIndex = 0;
+                    NameInput.Select();
+                    NameInput.ActivateInputField();
+                    break;
+            }
+        }
     }
     
     public void Login() {
