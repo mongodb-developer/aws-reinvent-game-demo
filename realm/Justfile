@@ -16,3 +16,6 @@ init:
 
 rolling:
     ./scripts/rolling_updates
+
+roll_players:
+    ./scripts/rolling_player_updates
