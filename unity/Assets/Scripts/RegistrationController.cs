@@ -26,8 +26,9 @@ public class RegistrationController : MonoBehaviour {
         NameInput.text = "";
         EmailInput.text = "";
         PasswordInput.text = "";
-        NameInput.Select();
-        NameInput.ActivateInputField();
+        if(Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer) {
+            NameInput.Select();
+        }
         CancelButton.onClick.AddListener(Login);
         RegistrationButton.onClick.AddListener(Register);
     }
@@ -40,20 +41,18 @@ public class RegistrationController : MonoBehaviour {
             switch(_inputFieldIndex) {
                 case 0:
                     NameInput.Select();
-                    NameInput.ActivateInputField();
                     break;
                 case 1:
                     EmailInput.Select();
-                    EmailInput.ActivateInputField();
                     break;
                 case 2:
                     PasswordInput.Select();
-                    PasswordInput.ActivateInputField();
                     break;
                 default:
                     _inputFieldIndex = 0;
-                    NameInput.Select();
-                    NameInput.ActivateInputField();
+                    if(Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer) {
+                        NameInput.Select();
+                    }
                     break;
             }
         } else if(Keyboard.current.enterKey.wasReleasedThisFrame) {
@@ -62,7 +61,6 @@ public class RegistrationController : MonoBehaviour {
     }
     
     public void Login() {
-        // SceneManager.LoadScene("LoginScene");
         LevelManager.Instance.LoadSceneWithoutModal("LoginScene");
     }
 
@@ -71,8 +69,7 @@ public class RegistrationController : MonoBehaviour {
         LevelManager.Instance.SetProgress(0.3f);
         string registrationResponse = await RealmController.Instance.Register(NameInput.text, EmailInput.text, PasswordInput.text);
         if(registrationResponse == "") {
-            // SceneManager.LoadScene("MidgardScene");
-            LevelManager.Instance.LoadScene("MidgardScene");
+            LevelManager.Instance.LoadScene("StoryStartingScene");
         } else {
             ErrorText.gameObject.SetActive(true);
             ErrorText.text = "ERROR: " + registrationResponse;

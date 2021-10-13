@@ -24,8 +24,9 @@ public class LoginController : MonoBehaviour {
         LevelManager.Instance.HideLoading();
         EmailInput.text = "";
         PasswordInput.text = "";
-        EmailInput.Select();
-        EmailInput.ActivateInputField();
+        if(Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer) {
+            EmailInput.Select();
+        }
         LoginButton.onClick.AddListener(Login);
         RegistrationButton.onClick.AddListener(Register);
     }
@@ -38,16 +39,15 @@ public class LoginController : MonoBehaviour {
             switch(_inputFieldIndex) {
                 case 0:
                     EmailInput.Select();
-                    EmailInput.ActivateInputField();
                     break;
                 case 1:
                     PasswordInput.Select();
-                    PasswordInput.ActivateInputField();
                     break;
                 default:
                     _inputFieldIndex = 0;
-                    EmailInput.Select();
-                    EmailInput.ActivateInputField();
+                    if(Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer) {
+                        EmailInput.Select();
+                    }
                     break;
             }
         } else if(Keyboard.current.enterKey.wasReleasedThisFrame) {
@@ -60,7 +60,6 @@ public class LoginController : MonoBehaviour {
         LevelManager.Instance.SetProgress(0.3f);
         string loginResponse = await RealmController.Instance.Login(EmailInput.text, PasswordInput.text);
         if(loginResponse == "") {
-            // SceneManager.LoadScene("MidgardScene");
             LevelManager.Instance.LoadScene("MidgardScene");
         } else {
             ErrorText.gameObject.SetActive(true);
@@ -70,7 +69,6 @@ public class LoginController : MonoBehaviour {
     }
 
     public void Register() {
-        // SceneManager.LoadScene("RegistrationScene");
         LevelManager.Instance.LoadSceneWithoutModal("RegistrationScene");
     }
 

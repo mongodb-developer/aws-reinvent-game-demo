@@ -31,7 +31,6 @@ public class CharacterDialogue : MonoBehaviour {
                 if(onDismiss != null) {
                     onDismiss.Invoke();
                 }
-                // gameObject.SetActive(false);
             }
         }
     }
