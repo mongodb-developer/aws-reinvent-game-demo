@@ -11,7 +11,10 @@ public class LevelManager : MonoBehaviour {
 
     [SerializeField] private GameObject _loaderCanvas;
     [SerializeField] private Image _progressBar;
+    [SerializeField] private Text _tipsTricksText;
+    [SerializeField] private List<string> _tipsTricksList;
     private float _targetProgress;
+    private bool _isLoading = false;
 
     void Awake() {
         if (Instance == null) {
@@ -28,10 +31,13 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void ShowLoading() {
+        _isLoading = true;
+        _tipsTricksText.text = _tipsTricksList[Random.Range(0, _tipsTricksList.Count)];
         _loaderCanvas.SetActive(true);
     }
 
     public void HideLoading() {
+        _isLoading = false;
         _loaderCanvas.SetActive(false);
     }
 
@@ -40,6 +46,10 @@ public class LevelManager : MonoBehaviour {
     }
 
     public async void LoadScene(string sceneName) {
+        if(_isLoading == false) {
+            _tipsTricksText.text = _tipsTricksList[Random.Range(0, _tipsTricksList.Count)];
+        }
+        _isLoading = true;
         _progressBar.fillAmount = 0;
         _targetProgress = 0;
         var scene = SceneManager.LoadSceneAsync(sceneName);
@@ -62,6 +72,10 @@ public class LevelManager : MonoBehaviour {
         if(_loaderCanvas.activeInHierarchy) {
             _progressBar.fillAmount = Mathf.MoveTowards(_progressBar.fillAmount, _targetProgress, 3 * Time.deltaTime);
         }
+    }
+
+    public bool IsLoading() {
+        return _isLoading;
     }
 
 }

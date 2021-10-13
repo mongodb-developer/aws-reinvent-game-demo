@@ -10,6 +10,7 @@ public class MidgardController : MonoBehaviour {
     public GameObject mainMenuModal;
     public Text playerNameText;
     public Text totalScoreText;
+    public Text instructionsText;
 
     private List<string> _keyStrokeHistory;
     private AudioSource _audioSource;
@@ -18,6 +19,9 @@ public class MidgardController : MonoBehaviour {
         Time.timeScale = 1.0f;
         _keyStrokeHistory = new List<string>();
         _audioSource = GetComponent<AudioSource>();
+        if(Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer) {
+            instructionsText.gameObject.SetActive(true);
+        }
     }
 
     void Start() {
@@ -26,16 +30,18 @@ public class MidgardController : MonoBehaviour {
     }
 
     void Update() {
-        totalScoreText.text = RealmController.Instance != null ? "TOTAL SCORE: " + RealmController.Instance.GetCurrentPlayer().TotalScore.ToString() : "TOTAL SCORE: ";
-        Key keyPressed = DetectKeyPressed();
-        if(keyPressed == Key.Escape) {
-            ToggleMainMenu();
-        } else {
-            AddKeyStrokeToHistory(keyPressed.ToString());
-        }
-        if(GetKeyStrokeHistory().Equals("UpArrow,UpArrow,DownArrow,DownArrow,LeftArrow,RightArrow,LeftArrow,RightArrow,B,A")) {
-            RealmController.Instance.SetTotalScore(1337);
-            ClearKeyStrokeHistory();
+        if(!LevelManager.Instance.IsLoading()) {
+            totalScoreText.text = RealmController.Instance != null ? "TOTAL SCORE: " + RealmController.Instance.GetCurrentPlayer().TotalScore.ToString() : "TOTAL SCORE: ";
+            Key keyPressed = DetectKeyPressed();
+            if(keyPressed == Key.Escape) {
+                ToggleMainMenu();
+            } else {
+                AddKeyStrokeToHistory(keyPressed.ToString());
+            }
+            if(GetKeyStrokeHistory().Equals("UpArrow,UpArrow,DownArrow,DownArrow,LeftArrow,RightArrow,LeftArrow,RightArrow,B,A")) {
+                RealmController.Instance.SetTotalScore(1337);
+                ClearKeyStrokeHistory();
+            }
         }
     }
 

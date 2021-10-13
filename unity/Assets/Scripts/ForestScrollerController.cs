@@ -15,9 +15,13 @@ public class ForestScrollerController : MonoBehaviour {
     public Text scoreText;
     public Text timeRemainingText;
     public float playTime = 100.0f;
+    public Text instructionsText;
 
     void Awake() {
         Time.timeScale = 1.0f;
+        if(Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer) {
+            instructionsText.gameObject.SetActive(true);
+        }
     }
 
     void Start() {
@@ -27,14 +31,16 @@ public class ForestScrollerController : MonoBehaviour {
     }
 
     void Update() {
-        scoreText.text = "SCORE: " + _score.ToString();
-        timeRemainingText.text = "TIME REMAINING: " + ((int)playTime).ToString();
-        playTime -= Time.deltaTime;
-        if(playTime <= 0) {
-            ShowGameOverModal();
-        }
-        if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
-            ToggleMainMenu();
+        if(!LevelManager.Instance.IsLoading()) {
+            scoreText.text = "SCORE: " + _score.ToString();
+            timeRemainingText.text = "TIME REMAINING: " + ((int)playTime).ToString();
+            playTime -= Time.deltaTime;
+            if(playTime <= 0) {
+                ShowGameOverModal();
+            }
+            if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
+                ToggleMainMenu();
+            }
         }
     }
 

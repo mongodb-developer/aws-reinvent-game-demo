@@ -15,7 +15,6 @@ public class LogoutMenuButton : MonoBehaviour {
 
     void btnClick() {
         RealmController.Instance.Logout();
-        // SceneManager.LoadScene("LoginScene");
         LevelManager.Instance.LoadScene("LoginScene");
     }
 
