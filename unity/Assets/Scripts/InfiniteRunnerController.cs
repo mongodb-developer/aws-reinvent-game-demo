@@ -11,6 +11,7 @@ public class InfiniteRunnerController : MonoBehaviour
     public GameObject gameOverModal;
     public GameObject gameSuccessModal;
     public GameObject mainMenuModal;
+    public Text highScoreText;
     public Text scoreText;
     public Text instructionsText;
 
@@ -30,6 +31,7 @@ public class InfiniteRunnerController : MonoBehaviour
     void Start() {
         LevelManager.Instance.HideLoading();
         _score = 0;
+        highScoreText.text = "HIGH SCORE: " + RealmController.Instance.GetCurrentPlayer().Games.ChangeStreams.HighScore;
     }
 
     void Update() {

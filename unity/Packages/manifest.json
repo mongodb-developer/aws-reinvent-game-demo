@@ -8,6 +8,7 @@
     "com.unity.inputsystem": "1.1.0-pre.5",
     "com.unity.test-framework": "1.1.29",
     "com.unity.timeline": "1.6.2",
+    "com.unity.toolchain.macos-x86_64-linux-x86_64": "0.1.22-preview",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.7.3",
     "com.unity.xr.legacyinputhelpers": "2.1.8",

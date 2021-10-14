@@ -12,6 +12,7 @@ public class ForestScrollerController : MonoBehaviour {
     public GameObject mainMenuModal;
     public GameObject gameOverModal;
     public GameObject gameSuccessModal;
+    public Text highScoreText;
     public Text scoreText;
     public Text timeRemainingText;
     public float playTime = 100.0f;
@@ -27,6 +28,7 @@ public class ForestScrollerController : MonoBehaviour {
     void Start() {
         LevelManager.Instance.HideLoading();
         _score = 0;
+        highScoreText.text = "HIGH SCORE: " + RealmController.Instance.GetCurrentPlayer().Games.ForestScroller.HighScore;
         _audioSource = GetComponent<AudioSource>();
     }
 
