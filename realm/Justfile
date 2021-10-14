@@ -19,3 +19,6 @@ rolling:
 
 roll_players:
     ./scripts/rolling_player_updates
+
+sync:
+    mongosh $MDB_URI scripts/synchronize.js
