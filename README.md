@@ -1,3 +1,9 @@
+# Demo Games Project
+
+This is a project to build some mini-games, primarily for Re:Invent, but also for MDB.Local London and potentially other events.
+
+Scores are synchronized to Atlas, and there is a live [Leaderboard](https://demogames-sdyhk.mongodbstitch.com/) that shows the high scores.
+
 ## Required Unity Assets
 
 This project uses free and paid assets from the Unity Asset Store. Due to licensing reasons, these assets could not be bundled into the public repository on GitHub. After cloning this project, you'll need to purchase or download the following assets:
@@ -16,10 +22,7 @@ The assets can be downloaded through the Package Manager within Unity. They shou
 
 ## Authors
 
-[Nic Raboy](https://www.nraboy.com)
-
-Adrienne Tacke
-
-Mark Smith
-
-Karen Huaulme
+* [Nic Raboy](https://www.nraboy.com)
+* Adrienne Tacke
+* [Mark Smith](https://twitter.com/judy2k)
+* Karen Huaulme

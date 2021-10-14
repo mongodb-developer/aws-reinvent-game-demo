@@ -1,0 +1,64 @@
+{
+    "properties": {
+        "_id": {
+            "bsonType": "string"
+        },
+        "email": {
+            "bsonType": "string"
+        },
+        "games": {
+            "bsonType": "object",
+            "properties": {
+                "change_streams": {
+                    "bsonType": "object",
+                    "properties": {
+                        "high_score": {
+                            "bsonType": "int"
+                        },
+                        "total_plays": {
+                            "bsonType": "int"
+                        }
+                    }
+                },
+                "fishing": {
+                    "bsonType": "object",
+                    "properties": {
+                        "high_score": {
+                            "bsonType": "int"
+                        },
+                        "total_plays": {
+                            "bsonType": "int"
+                        }
+                    }
+                },
+                "forest_scroller": {
+                    "bsonType": "object",
+                    "properties": {
+                        "high_score": {
+                            "bsonType": "int"
+                        },
+                        "total_plays": {
+                            "bsonType": "int"
+                        }
+                    }
+                }
+            }
+        },
+        "leafs": {
+            "bsonType": "int"
+        },
+        "name": {
+            "bsonType": "string"
+        },
+        "total_score": {
+            "bsonType": "int"
+        },
+        "x": {
+            "bsonType": "double"
+        },
+        "y": {
+            "bsonType": "double"
+        }
+    },
+    "title": "PlayerModel"
+}
