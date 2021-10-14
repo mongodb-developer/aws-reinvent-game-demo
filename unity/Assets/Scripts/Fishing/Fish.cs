@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fish : MonoBehaviour {
 
-    public Sprite fishSprite;
+    public Sprite[] fishSprite;
     public int fishWeight = 1;
     public float movementSpeed = 1.25f;
     public float movementTimeout = 10.0f;
@@ -13,14 +13,22 @@ public class Fish : MonoBehaviour {
     private Vector2 _fishPosition;
     private float _timeUntilCanMove = 0.0f;
     private bool _isHooked = false;
+    private SpriteRenderer _spriteRenderer;
 
     void OnEnable() {
-        transform.position = new Vector3(Random.Range(-6.0f, 6.0f), Random.Range(-3.75f, 1.25f), 0.0f);
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer.sprite = fishSprite[Random.Range(0, fishSprite.Length)];
+        transform.position = new Vector3(Random.Range(-9.25f, 9.25f), Random.Range(-5.25f, 1.00f), 0.0f);
         fishWeight = Random.Range(1, 5);
     }
 
     void Start() {
-        _fishPosition = new Vector2(Random.Range(-8.0f, 8.0f), Random.Range(-3.75f, 1.25f));
+        _fishPosition = new Vector2(Random.Range(-9.25f, 9.25f), Random.Range(-5.25f, 1.00f));
+        if(_fishPosition.x < transform.position.x) {
+            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+        } else {
+            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        }
         _isMoving = true;
     }
 
@@ -28,7 +36,12 @@ public class Fish : MonoBehaviour {
         if(_isHooked == false) {
             _timeUntilCanMove -= Time.deltaTime;
             if(_isMoving == false && _timeUntilCanMove <= 0) {
-                _fishPosition = new Vector2(Random.Range(-8.0f, 8.0f), Random.Range(-3.75f, 1.25f));
+                _fishPosition = new Vector2(Random.Range(-9.25f, 9.25f), Random.Range(-5.25f, 1.00f));
+                if(_fishPosition.x < transform.position.x) {
+                    transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+                } else {
+                    transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                }
                 _isMoving = true;
             }
             if(_isMoving == true) {

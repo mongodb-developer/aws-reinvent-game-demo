@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class FishingController : MonoBehaviour {
 
@@ -10,15 +11,21 @@ public class FishingController : MonoBehaviour {
     public GameObject mainMenuModal;
     public Text timeRemainingText;
     public float playTime = 100.0f;
+    public Text instructionsText;
 
     private int _score;
     private AudioSource _audioSource;
 
     void Awake() {
+        Time.timeScale = 1.0f;
         _audioSource = GetComponent<AudioSource>();
+        if(Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer) {
+            instructionsText.gameObject.SetActive(true);
+        }
     }
 
     void Start() {
+        LevelManager.Instance.HideLoading();
         _score = 0;
         for(int i = 0; i < FObjectPool.SharedInstance.fishPoolSize; i++) {
             GameObject fish = FObjectPool.SharedInstance.GetPooledFish();
@@ -29,14 +36,16 @@ public class FishingController : MonoBehaviour {
     }
 
     void Update() {
-        scoreText.text = "SCORE: " + _score.ToString();
-        timeRemainingText.text = "TIME REMAINING: " + ((int) playTime).ToString();
-        playTime -= Time.deltaTime;
-        if((FObjectPool.SharedInstance.IsPoolFull() == true || playTime <= 0) && gameSuccessModal.activeInHierarchy == false) {
-            ShowGameSuccessModal();
-        }
-        if(Input.GetKeyUp(KeyCode.Escape)) {
-            ToggleMainMenu();
+        if(!LevelManager.Instance.IsLoading()) {
+            scoreText.text = "SCORE: " + _score.ToString();
+            timeRemainingText.text = "TIME REMAINING: " + ((int) playTime).ToString();
+            playTime -= Time.deltaTime;
+            if((FObjectPool.SharedInstance.IsPoolFull() == true || playTime <= 0) && gameSuccessModal.activeInHierarchy == false) {
+                ShowGameSuccessModal();
+            }
+            if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
+                ToggleMainMenu();
+            }
         }
     }
 
