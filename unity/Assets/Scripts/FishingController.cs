@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class FishingController : MonoBehaviour {
 
+    public Text highScoreText;
     public Text scoreText;
     public GameObject gameSuccessModal;
     public GameObject mainMenuModal;
@@ -26,6 +27,7 @@ public class FishingController : MonoBehaviour {
 
     void Start() {
         LevelManager.Instance.HideLoading();
+        highScoreText.text = "HIGH SCORE: " + RealmController.Instance.GetCurrentPlayer().Games.Fishing.HighScore;
         _score = 0;
         for(int i = 0; i < FObjectPool.SharedInstance.fishPoolSize; i++) {
             GameObject fish = FObjectPool.SharedInstance.GetPooledFish();

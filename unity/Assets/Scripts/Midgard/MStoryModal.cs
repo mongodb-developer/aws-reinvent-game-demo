@@ -27,7 +27,7 @@ public class MStoryModal : MonoBehaviour {
     }
 
     void Update() {
-        if(Keyboard.current.enterKey.wasReleasedThisFrame || Pointer.current.press.wasPressedThisFrame) {
+        if(Keyboard.current.enterKey.wasReleasedThisFrame || Keyboard.current.spaceKey.wasReleasedThisFrame || Pointer.current.press.wasPressedThisFrame) {
             if(_messageNumber < storyMessages.Count - 1) {
                 _messageNumber++;
                 _storyText.text = storyMessages[_messageNumber];

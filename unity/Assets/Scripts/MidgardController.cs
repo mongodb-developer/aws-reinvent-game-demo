@@ -26,12 +26,12 @@ public class MidgardController : MonoBehaviour {
 
     void Start() {
         LevelManager.Instance.HideLoading();
-        playerNameText.text = RealmController.Instance != null ? "PLAYER: " + RealmController.Instance.GetCurrentPlayer().Name : "PLAYER: ";
+        playerNameText.text = "PLAYER: " + RealmController.Instance.GetCurrentPlayer().Name;
     }
 
     void Update() {
         if(!LevelManager.Instance.IsLoading()) {
-            totalScoreText.text = RealmController.Instance != null ? "TOTAL SCORE: " + RealmController.Instance.GetCurrentPlayer().TotalScore.ToString() : "TOTAL SCORE: ";
+            totalScoreText.text = "TOTAL SCORE: " + RealmController.Instance.GetCurrentPlayer().TotalScore.ToString();
             Key keyPressed = DetectKeyPressed();
             if(keyPressed == Key.Escape) {
                 ToggleMainMenu();

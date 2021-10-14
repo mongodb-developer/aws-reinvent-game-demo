@@ -22,7 +22,16 @@ public class PlayerModel : RealmObject {
     [MapTo("y")]
     public double? Y { get; set; }
 
-    public PlayerModel() { }
+    public PlayerModel() { 
+        this.Id = "TEMP123";
+        this.Email = "TEMP123";
+        this.Name = "DEVELOPMENT USER";
+        this.Leafs = 0;
+        this.TotalScore = 0;
+        this.X = -120.0;
+        this.Y = -142.0;
+        this.Games = new PlayerModel_games();
+    }
 
     public PlayerModel(string id, string email) {
         this.Id = id;

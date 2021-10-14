@@ -71,11 +71,11 @@ TagManager:
   - name: Item
     uniqueID: 2595559427
     locked: 0
-  - name: Player
-    uniqueID: 3870738683
-    locked: 0
   - name: Obstacle
     uniqueID: 3383064187
+    locked: 0
+  - name: Player
+    uniqueID: 3870738683
     locked: 0
   - name: UI
     uniqueID: 1353551363
