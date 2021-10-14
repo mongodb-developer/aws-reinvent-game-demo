@@ -1,24 +1,31 @@
-push:
+# Push the built app to Realm hosting
+push:  
     realm-cli push \
         --include-hosting \
         --reset-cdn-cache \
         --yes
 
+# Build and push the app to Realm hosting
 deploy:
     cd app && npm run build
     just push
 
+# Connect to the configured MongoDB cluster
 connect:
     mongosh $MDB_URI
 
+# DESTRUCTIVE: create dummy scores in the scores collection
 init:
     mongosh $MDB_URI scripts/init_scores.js
 
+# DESTRUCTIVE: rolling updates to the scores collection
 rolling:
     ./scripts/rolling_updates
 
+# Rolling updates to scores in the players collection
 roll_players:
     ./scripts/rolling_player_updates
 
+# Copy scores from players to scores, and remove fake_game data
 sync:
     mongosh $MDB_URI scripts/synchronize.js
