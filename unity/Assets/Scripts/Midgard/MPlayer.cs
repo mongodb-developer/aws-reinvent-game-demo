@@ -15,9 +15,7 @@ public class MPlayer : MonoBehaviour {
     public float positionSaveTimeout = 2.0f;
 
     void Awake() {
-        if(RealmController.Instance != null) {
-            transform.position = new Vector2((float)RealmController.Instance.GetCurrentPlayer().X, (float)RealmController.Instance.GetCurrentPlayer().Y);
-        }
+        transform.position = new Vector2((float)RealmController.Instance.GetCurrentPlayer().X, (float)RealmController.Instance.GetCurrentPlayer().Y);
     }
 
     void Start() {
@@ -49,16 +47,9 @@ public class MPlayer : MonoBehaviour {
         }
         _timeUntilPositionSave -= Time.deltaTime;
         if(_timeUntilPositionSave <= 0) {
-            if(RealmController.Instance != null) {
-                RealmController.Instance.UpdatePositionInMidgard(transform.position.x, transform.position.y);
-            }
+            RealmController.Instance.UpdatePositionInMidgard(transform.position.x, transform.position.y);
             _timeUntilPositionSave = positionSaveTimeout;
         }
-        // if(Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.RightArrow)) {
-        //     if(RealmController.Instance != null) {
-        //         RealmController.Instance.UpdatePositionInMidgard(transform.position.x, transform.position.y);
-        //     }
-        // }
     }
 
     private void ResetAnimations() {

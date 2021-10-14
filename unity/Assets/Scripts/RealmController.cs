@@ -21,8 +21,10 @@ public class RealmController : MonoBehaviour {
     private User _realmUser;
 
     void Awake() {
-        DontDestroyOnLoad(gameObject);
-        Instance = this;
+        if(Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     void OnDisable() {
@@ -55,8 +57,10 @@ public class RealmController : MonoBehaviour {
     }
 
     public async void Logout() {
-        await _realmUser.LogOutAsync();
-        _realm.Dispose();
+        if(_realm != null) {
+            await _realmUser.LogOutAsync();
+            _realm.Dispose();
+        }
     }
 
     public async Task<string> Register(string name, string email, string password) {
@@ -96,6 +100,9 @@ public class RealmController : MonoBehaviour {
     }
 
     public PlayerModel GetCurrentPlayer() {
+        if(_realm == null) {
+            return new PlayerModel();
+        }
         PlayerModel player = _realm.Find<PlayerModel>(_realmUser.Id);
         if(player == null) {
             _realm.Write(() => {
@@ -106,6 +113,9 @@ public class RealmController : MonoBehaviour {
     }
 
     public void IncreaseChangeStreamsScore(int currentScore) {
+        if(_realm == null) {
+            return;
+        }
         PlayerModel player = GetCurrentPlayer();
         if(currentScore > player.Games.ChangeStreams.HighScore) {
             _realm.Write(() => {
@@ -115,6 +125,9 @@ public class RealmController : MonoBehaviour {
     }
 
     public void IncreaseChangeStreamsPlayCount() {
+        if(_realm == null) {
+            return;
+        }
         PlayerModel player = GetCurrentPlayer();
         _realm.Write(() => {
             player.Games.ChangeStreams.TotalPlays++;
@@ -122,6 +135,9 @@ public class RealmController : MonoBehaviour {
     }
 
     public void SetTotalScore(int score) {
+        if(_realm == null) {
+            return;
+        }
         PlayerModel player = GetCurrentPlayer();
         _realm.Write(() => {
             player.TotalScore = score;
@@ -129,6 +145,9 @@ public class RealmController : MonoBehaviour {
     }
 
     public void IncreaseFishingPlayCount() {
+        if(_realm == null) {
+            return;
+        }
         PlayerModel player = GetCurrentPlayer();
         _realm.Write(() => {
             player.Games.Fishing.TotalPlays++;
@@ -136,6 +155,9 @@ public class RealmController : MonoBehaviour {
     }
 
     public void IncreaseFishingScore(int currentScore) {
+        if(_realm == null) {
+            return;
+        }
         PlayerModel player = GetCurrentPlayer();
         if(currentScore > player.Games.Fishing.HighScore) {
             _realm.Write(() => {
@@ -145,6 +167,9 @@ public class RealmController : MonoBehaviour {
     }
 
     public void IncreaseForestScrollerPlayCount() {
+        if(_realm == null) {
+            return;
+        }
         PlayerModel player = GetCurrentPlayer();
         _realm.Write(() => {
             player.Games.ForestScroller.TotalPlays++;
@@ -152,6 +177,9 @@ public class RealmController : MonoBehaviour {
     }
 
     public void IncreaseForestScrollerScore(int currentScore) {
+        if(_realm == null) {
+            return;
+        }
         PlayerModel player = GetCurrentPlayer();
         if(currentScore > player.Games.ForestScroller.HighScore) {
             _realm.Write(() => {
@@ -161,6 +189,9 @@ public class RealmController : MonoBehaviour {
     }
 
     public void UpdatePositionInMidgard(float x, float y) {
+        if(_realm == null) {
+            return;
+        }
         PlayerModel player = GetCurrentPlayer();
         _realm.Write(() => {
             player.X = (double) x;
