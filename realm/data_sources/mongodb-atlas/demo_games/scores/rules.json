@@ -1,0 +1,14 @@
+{
+    "collection": "scores",
+    "database": "demo_games",
+    "roles": [
+        {
+            "name": "default",
+            "apply_when": {},
+            "insert": true,
+            "delete": true,
+            "search": true,
+            "additional_fields": {}
+        }
+    ]
+}

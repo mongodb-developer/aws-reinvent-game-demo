@@ -1,3 +1,13 @@
 {
-    "development_mode_enabled": false
+    "state": "enabled",
+    "partition": {
+        "key": "email",
+        "type": "string",
+        "permissions": {
+            "read": {},
+            "write": {}
+        }
+    },
+    "development_mode_enabled": false,
+    "service_name": "mongodb-atlas"
 }
