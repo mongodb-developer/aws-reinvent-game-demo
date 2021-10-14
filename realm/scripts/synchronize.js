@@ -7,6 +7,10 @@
 const scores = db.scores;
 const players = db.players;
 
+const cleanup_stage = {
+  $unset: "games.fake_game",
+};
+
 const project_stage = {
   $project: {
     username: "$name",
@@ -32,4 +36,5 @@ const merge_stage = {
 
 scores.drop();
 scores.createIndex({ username: 1 }, { unique: true });
+players.aggregate([cleanup_stage]);
 players.aggregate([project_stage, merge_stage]);
