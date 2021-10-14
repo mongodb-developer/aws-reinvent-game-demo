@@ -22,7 +22,7 @@ public class CharacterDialogue : MonoBehaviour {
     }
 
     void Update() {
-        if(Keyboard.current.enterKey.wasReleasedThisFrame || Pointer.current.press.wasPressedThisFrame) {
+        if(Keyboard.current.enterKey.wasReleasedThisFrame || Keyboard.current.spaceKey.wasReleasedThisFrame || Pointer.current.press.wasPressedThisFrame) {
             if(_messageNumber < messages.Count - 1) {
                 _messageNumber++;
                 _messageText.text = messages[_messageNumber];

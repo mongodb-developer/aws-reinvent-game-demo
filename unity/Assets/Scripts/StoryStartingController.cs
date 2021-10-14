@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StoryStartingController : MonoBehaviour {
 
     public List<CharacterDialogue> dialogue;
+    public Text instructionsText;
 
     private int _dialogueSetNumber = 0;
 
     void Awake() {
         StartCoroutine(StoryCoroutine());
+        if(Application.platform != RuntimePlatform.Android && Application.platform != RuntimePlatform.IPhonePlayer) {
+            instructionsText.gameObject.SetActive(true);
+        }
     }
 
     void Start() {

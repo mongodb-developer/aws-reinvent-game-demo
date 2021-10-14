@@ -13813,8 +13813,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 867.06, y: 579}
-  m_SizeDelta: {x: 785.87, y: 89.69}
+  m_AnchoredPosition: {x: 867.06, y: 566.07}
+  m_SizeDelta: {x: 785.87, y: 115.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2127180993
 MonoBehaviour:
@@ -13849,7 +13849,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.15
-  m_Text: 'Movement: Arrow Keys
+  m_Text: 'Menu: Escape Key
+
+    Movement: Arrow Keys
 
     Action: Space Key'
 --- !u!222 &2127180994

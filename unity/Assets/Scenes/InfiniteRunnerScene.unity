@@ -2440,7 +2440,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.15
-  m_Text: 'Movement: Arrow Keys'
+  m_Text: 'Menu: Escape Key
+
+    Movement: Arrow Keys'
 --- !u!222 &1170848502
 CanvasRenderer:
   m_ObjectHideFlags: 0
