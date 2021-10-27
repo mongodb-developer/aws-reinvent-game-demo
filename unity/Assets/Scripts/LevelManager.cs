@@ -58,10 +58,10 @@ public class LevelManager : MonoBehaviour {
         do {
             _targetProgress = scene.progress;
         } while (scene.progress < 0.9f);
+        await Task.Delay(1000);
         _targetProgress = 1.0f;
         await Task.Delay(1000);
         scene.allowSceneActivation = true;
-        // _loaderCanvas.SetActive(false);
     }
 
     public void LoadSceneWithoutModal(string sceneName) {

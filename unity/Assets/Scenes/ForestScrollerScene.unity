@@ -13753,7 +13753,7 @@ MonoBehaviour:
   highScoreText: {fileID: 208535003}
   scoreText: {fileID: 1489248622}
   timeRemainingText: {fileID: 1773644500}
-  playTime: 100
+  playTime: 60
   instructionsText: {fileID: 2127180993}
 --- !u!1001 &2051236701
 PrefabInstance:
