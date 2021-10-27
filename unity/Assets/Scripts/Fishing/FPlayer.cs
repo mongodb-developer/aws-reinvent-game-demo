@@ -28,7 +28,7 @@ public class FPlayer : MonoBehaviour {
                 transform.position += Vector3.right * movementSpeed * Time.deltaTime;
             } else if(Keyboard.current.spaceKey.wasReleasedThisFrame) {
                 _isCasting = true;
-                fishHook.transform.position = new Vector3(transform.position.x, transform.position.y, 0.0f);
+                fishHook.transform.position = new Vector3(transform.position.x, transform.position.y - 0.75f, 0.0f);
                 fishHook.SetActive(true);
                 fishHook.GetComponent<FHook>().DropLine();
             }

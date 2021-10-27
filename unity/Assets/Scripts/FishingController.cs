@@ -11,7 +11,7 @@ public class FishingController : MonoBehaviour {
     public GameObject gameSuccessModal;
     public GameObject mainMenuModal;
     public Text timeRemainingText;
-    public float playTime = 100.0f;
+    public float playTime = 60.0f;
     public Text instructionsText;
 
     private int _score;

@@ -15,7 +15,7 @@ public class ForestScrollerController : MonoBehaviour {
     public Text highScoreText;
     public Text scoreText;
     public Text timeRemainingText;
-    public float playTime = 100.0f;
+    public float playTime = 60.0f;
     public Text instructionsText;
 
     void Awake() {
