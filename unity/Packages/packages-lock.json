@@ -79,7 +79,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.6.2",
+      "version": "1.6.3",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -130,7 +130,7 @@
       "url": "https://packages.unity.com"
     },
     "io.realm.unity": {
-      "version": "10.4.0",
+      "version": "10.6.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
