@@ -394,6 +394,8 @@ MonoBehaviour:
     and other popular podcasting applications!
   - Don't forget to follow the developers of this game on Twitter! @nraboy, @adriennetacke
     @judy2k
+  - The source code to this game can be found on GitHub. Ask someone at the booth
+    for more information!
 --- !u!1 &2737625112574025206
 GameObject:
   m_ObjectHideFlags: 0

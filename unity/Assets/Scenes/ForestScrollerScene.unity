@@ -3157,7 +3157,7 @@ GameObject:
   - component: {fileID: 1004602286}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3609,6 +3609,108 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffectMultiplier: 0.8
+--- !u!1001 &1065025248
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3026947866881437952, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4a32ea4778d4040f1be769df8f3a60ab, type: 2}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 97.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.141713
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086757, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: _message
+      value: "Yes, documents are flexible, but that doesn\u2019t mean data models
+        are unnecessary! In fact, a good data model means better performance for
+        your applications, so model wisely!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086757, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: _spriteImage
+      value: 
+      objectReference: {fileID: 8644832591467991550, guid: cd947491a13509945aa1b644f9db3ef2,
+        type: 3}
+    - target: {fileID: 3026947868205086757, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: _isFacingRight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086757, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: _animatorController
+      value: 
+      objectReference: {fileID: 9100000, guid: 4a32ea4778d4040f1be769df8f3a60ab, type: 2}
+    - target: {fileID: 3026947868205086763, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_Name
+      value: value_proposition_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086763, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ea55a282b2ad4cad999b56de12f29fc, type: 3}
 --- !u!1 &1066130728
 GameObject:
   m_ObjectHideFlags: 0
@@ -13977,6 +14079,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127180991}
   m_CullTransparentMesh: 1
+--- !u!1001 &3026947867599845772
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3026947867976384014, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 407637964}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.141713
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086756, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086757, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: _message
+      value: Remember! Data that is accessed together should be stored together!
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086763, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_Name
+      value: value_proposition_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3026947868205086763, guid: 5ea55a282b2ad4cad999b56de12f29fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5ea55a282b2ad4cad999b56de12f29fc, type: 3}
 --- !u!1001 &4453782555062105047
 PrefabInstance:
   m_ObjectHideFlags: 0
