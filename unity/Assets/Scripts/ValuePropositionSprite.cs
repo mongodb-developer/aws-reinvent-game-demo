@@ -8,7 +8,9 @@ public class ValuePropositionSprite : MonoBehaviour {
     public UnityEvent onTriggerEnter2D;
 
     void OnTriggerEnter2D(Collider2D collider) {
-        onTriggerEnter2D.Invoke();
+        if(collider.gameObject.tag == "Player") {
+            onTriggerEnter2D.Invoke();
+        }
     }
 
 }

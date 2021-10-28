@@ -206,8 +206,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.0015106}
-  m_SizeDelta: {x: 1920, y: 500}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1750, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3026947867721387860
 CanvasRenderer:
@@ -482,3 +482,4 @@ MonoBehaviour:
   _spriteImage: {fileID: -6367560908665664636, guid: 3750f45c844123341b9a777a96cb1eca,
     type: 3}
   _message: Test
+  _isFacingRight: 1

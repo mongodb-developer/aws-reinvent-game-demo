@@ -8,6 +8,7 @@ public class Fish : MonoBehaviour {
     public int fishWeight = 1;
     public float movementSpeed = 1.25f;
     public float movementTimeout = 10.0f;
+    public bool isWeightRandomized = true;
 
     private bool _isMoving = false;
     private Vector2 _fishPosition;
@@ -16,10 +17,14 @@ public class Fish : MonoBehaviour {
     private SpriteRenderer _spriteRenderer;
 
     void OnEnable() {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _spriteRenderer.sprite = fishSprite[Random.Range(0, fishSprite.Length)];
+        if(fishSprite.Length > 0) {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            _spriteRenderer.sprite = fishSprite[Random.Range(0, fishSprite.Length)];
+        }
         transform.position = new Vector3(Random.Range(-9.25f, 9.25f), Random.Range(-5.25f, 1.00f), 0.0f);
-        fishWeight = Random.Range(1, 5);
+        if(isWeightRandomized == true) {
+            fishWeight = Random.Range(1, 5);
+        }
     }
 
     void Start() {

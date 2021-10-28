@@ -20,7 +20,11 @@ public class ValuePropositionEncounter : MonoBehaviour {
         _messageText.text = _message;
         _sprite.GetComponent<ValuePropositionSprite>().onTriggerEnter2D.AddListener(onTriggerEnter2D);
         _sprite.GetComponent<SpriteRenderer>().sprite = _spriteImage;
-        _sprite.GetComponent<Animator>().runtimeAnimatorController = _animatorController;
+        if(_animatorController != null) {
+            _sprite.GetComponent<Animator>().runtimeAnimatorController = _animatorController;
+        } else {
+            _sprite.GetComponent<Animator>().enabled = false;
+        }
         if(_isFacingRight == false) {
             _sprite.transform.localScale = new Vector3(-1.0f * _sprite.transform.localScale.x, _sprite.transform.localScale.y, _sprite.transform.localScale.z);
         }
