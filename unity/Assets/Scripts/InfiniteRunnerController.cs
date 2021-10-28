@@ -14,6 +14,7 @@ public class InfiniteRunnerController : MonoBehaviour
     public Text highScoreText;
     public Text scoreText;
     public Text instructionsText;
+    public Text timeRemainingText;
 
     private float _timeUntilObstacle = 1.0f;
     private int _score;
@@ -36,6 +37,7 @@ public class InfiniteRunnerController : MonoBehaviour
 
     void Update() {
         if(!LevelManager.Instance.IsLoading()) {
+            timeRemainingText.text = "TIME REMAINING: " + (100 - ((int) Time.timeSinceLevelLoad)).ToString();
             if(Keyboard.current.escapeKey.wasReleasedThisFrame) {
                 ToggleMainMenu();
             }
