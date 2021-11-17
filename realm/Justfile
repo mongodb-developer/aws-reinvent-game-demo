@@ -7,7 +7,7 @@ push:
 
 # Build and push the app to Realm hosting
 deploy:
-    cd app && npm run build
+    cd app && BUILD_PATH='../hosting' npm run build
     just push
 
 # Connect to the configured MongoDB cluster
