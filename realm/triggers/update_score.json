@@ -6,8 +6,8 @@
             "INSERT",
             "UPDATE"
         ],
-        "database": "demo_games",
-        "collection": "players",
+        "database": "mongo_world_demo",
+        "collection": "player_data",
         "service_name": "mongodb-atlas",
         "match": {},
         "project": {},

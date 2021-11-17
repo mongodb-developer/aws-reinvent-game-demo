@@ -1,6 +1,6 @@
 {
-    "collection": "players",
-    "database": "demo_games",
+    "collection": "player_data",
+    "database": "mongo_world_demo",
     "roles": [
         {
             "name": "default",

@@ -68,7 +68,7 @@ function App({ onClick }) {
 
       const winnersCollection = user
         .mongoClient("mongodb-atlas")
-        .db("demo_games")
+        .db("mongo_world_demo")
         .collection("scores");
       const winnerStream = winnersCollection.watch();
       for await (const change of winnerStream) {

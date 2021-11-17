@@ -1,4 +1,4 @@
-exports = async function(changeEvent) {
+exports = async function (changeEvent) {
   /*
     A Database Trigger will always call a function with a changeEvent.
     Documentation on ChangeEvents: https://docs.mongodb.com/manual/reference/change-events/
@@ -25,7 +25,7 @@ exports = async function(changeEvent) {
     Functions run by Triggers are run as System users and have full access to Services, Functions, and MongoDB Data.
 
     Access a mongodb service:
-    const collection = context.services.get("mongodb-atlas").db("demo_games").collection("players");
+    const collection = context.services.get("mongodb-atlas").db("mongo_world_demo").collection("players");
     const doc = collection.findOne({ name: "mongodb" });
 
     Note: In Atlas Triggers, the service name is defaulted to the cluster name.
@@ -39,9 +39,9 @@ exports = async function(changeEvent) {
     Learn more about http client here: https://docs.mongodb.com/realm/functions/context/#context-http
   */
   const id = changeEvent.documentKey._id;
-  const players = context.services.get("mongodb-atlas").db("demo_games").collection("players");
-  const scores = context.services.get("mongodb-atlas").db("demo_games").collection("scores");
-  
+  const players = context.services.get("mongodb-atlas").db("mongo_world_demo").collection("player_data");
+  const scores = context.services.get("mongodb-atlas").db("mongo_world_demo").collection("scores");
+
   if (changeEvent.updateDescription) {
     const updatedFields = changeEvent.updateDescription.updatedFields;
     if (Object.keys(updatedFields).some((key) => /games\..*\.high_score/.test(key))) {
@@ -70,11 +70,11 @@ exports = async function(changeEvent) {
       console.log(`Set ${highScoreDoc.name} to ${highScoreDoc.total_score}`);
       scores.updateOne(
         { username: highScoreDoc.name },
-        {$set: { username: highScoreDoc.name, score: highScoreDoc.total_score, }},
+        { $set: { username: highScoreDoc.name, score: highScoreDoc.total_score, } },
         { upsert: true });
       players.updateOne(
         { _id: highScoreDoc._id },
-        { $set: { total_score: highScoreDoc.total_score }});
+        { $set: { total_score: highScoreDoc.total_score } });
     }
   }
 };

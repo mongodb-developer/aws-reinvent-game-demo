@@ -1,8 +1,8 @@
 use("reinvent");
 
-db.players.deleteOne({ "email": "reinvent@example.com" });
+db.player_data.deleteOne({ "email": "reinvent@example.com" });
 
-db.players.insertOne({
+db.player_data.insertOne({
     "_id": "6123f18d5e740c1a8199a82b",
     "email": "reinvent@example.com",
     "leafs": 0,

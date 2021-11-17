@@ -18,7 +18,7 @@ class Updater:
         self.mdb = MongoClient(uri)
 
     def update_one(self):
-        players = self.mdb.get_default_database().players
+        players = self.mdb.get_default_database().player_data
         doc = next(
             players.aggregate(
                 [

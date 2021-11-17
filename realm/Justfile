@@ -22,10 +22,10 @@ init:
 rolling:
     ./scripts/rolling_updates
 
-# Rolling updates to scores in the players collection
+# Rolling updates to scores in the player_data collection
 roll_players:
     ./scripts/rolling_player_updates
 
-# Copy scores from players to scores, and remove fake_game data
+# Copy scores from player_data to scores, and remove fake_game data
 sync:
     mongosh $MDB_URI scripts/synchronize.js

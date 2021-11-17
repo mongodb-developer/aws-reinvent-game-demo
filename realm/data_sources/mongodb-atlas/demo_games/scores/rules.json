@@ -1,6 +1,6 @@
 {
     "collection": "scores",
-    "database": "demo_games",
+    "database": "mongo_world_demo",
     "roles": [
         {
             "name": "default",

@@ -5,7 +5,7 @@
  */
 
 const scores = db.scores;
-const players = db.players;
+const players = db.player_data;
 
 const cleanup_stage = {
   $unset: "games.fake_game",

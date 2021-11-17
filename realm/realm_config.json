@@ -1,7 +1,7 @@
 {
-    "app_id": "demogames-sdyhk",
+    "app_id": "mongo_world_demo-ebxbj",
     "config_version": 20210101,
-    "name": "DemoGames",
-    "location": "US-VA",
+    "name": "MongoWorldDemo",
+    "location": "US-OR",
     "deployment_model": "GLOBAL"
 }
