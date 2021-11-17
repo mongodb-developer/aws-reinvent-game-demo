@@ -2,7 +2,7 @@
 
 This is a project to build some mini-games, primarily for Re:Invent, but also for MDB.Local London and potentially other events.
 
-Scores are synchronized to Atlas, and there is a live [Leaderboard](https://demogames-sdyhk.mongodbstitch.com/) that shows the high scores.
+Scores are synchronized to Atlas, and there is a live [Leaderboard](https://mongo-world-demo-ebxbj-kscux.mongodbstitch.com/) that shows the high scores.
 
 ## Required Unity Assets
 

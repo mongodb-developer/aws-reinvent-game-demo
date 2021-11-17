@@ -9,3 +9,4 @@ unity/Assets/COPY SPRIGHT/**/*.*
 
 .DS_Store*
 .env
+.vscode
