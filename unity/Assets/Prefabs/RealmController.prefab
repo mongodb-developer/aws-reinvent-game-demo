@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b99724bba14d4520855ce1044376a58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  realmAppId: demogames-sdyhk
+  realmAppId: mongo_world_demo-ebxbj
