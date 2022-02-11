@@ -1,4 +1,8 @@
-# Demo Games Project
+# Mongo World Game Demo
+
+A game built with Unity and MongoDB Realm that can be experienced cross-platform on mobile as well as computer.
+
+![Mongo World Game Demo](game-demo.gif "Mongo World Game Demo")
 
 This is a project to build some mini-games, primarily for Re:Invent, but also for MDB.Local London and potentially other events.
 
